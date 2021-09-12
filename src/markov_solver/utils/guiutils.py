@@ -5,8 +5,9 @@ Utilities for CLI.
 import sys
 
 from colored import attr, fg
-from logutils import get_logger
 from pyfiglet import Figlet
+
+from markov_solver.utils.logutils import get_logger
 
 logger = get_logger(__name__)
 

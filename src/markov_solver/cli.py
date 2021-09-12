@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import click
-from utils import guiutils, logutils
+
+from markov_solver.utils import guiutils, logutils
 
 logger = logutils.get_logger(__name__)
 

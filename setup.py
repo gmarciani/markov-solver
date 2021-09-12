@@ -28,7 +28,7 @@ setup(
     install_requires=requirements(),
     entry_points={
         "console_scripts": [
-            "markov-solver = markov-solver.cli:main",
+            "markov-solver = markov_solver.cli:main",
         ]
     },
     include_package_data=True,
