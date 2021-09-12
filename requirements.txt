@@ -1,0 +1,7 @@
+click~=8.0.1
+colored~=1.4.2
+graphviz~=0.17
+numpy~=1.21.2
+pyfiglet~=0.7.6
+scipy~=1.7.1
+sympy~=1.8
