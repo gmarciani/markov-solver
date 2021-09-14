@@ -52,7 +52,6 @@ def solve(ctx, definition, outdir):
     report.save_txt(os.path.join(outdir, "result.txt"), append=True, empty=True)
     report.save_csv(os.path.join(outdir, "result.csv"), append=True, empty=True)
 
-    print("Markov Chain / Transition Matrix\n\n{}".format(markov_chain.matrixs()))
     markov_chain.render_graph(os.path.join(outdir, "MarkovChain"))
 
 

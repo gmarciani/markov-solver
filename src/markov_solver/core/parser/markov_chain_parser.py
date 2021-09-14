@@ -1,12 +1,22 @@
-from markov_solver.core.examples.markov_chains import MarkovChainAlgorithm1
+import yaml
+
+from markov_solver.core.model.markov_chain import MarkovChain
+from markov_solver.core.model.markov_link import MarkovLink
+from markov_solver.core.model.markov_state import MarkovState
 
 
 def create_chain_from_file(path):
-    N = 2
-    S = 1
-    l1 = 6
-    l2 = 6.25
-    m1 = 0.45
-    m2 = 0.25
+    with open(path, "r") as definition_file:
+        definition = yaml.load(definition_file, Loader=yaml.FullLoader)
 
-    return MarkovChainAlgorithm1(N, l1, l2, m1, m2)
+    mc = MarkovChain()
+    mc.add_symbols(**definition["symbols"])
+    for edge in definition["chain"]:
+        head = MarkovState(edge["from"])
+        tail = MarkovState(edge["to"])
+        link = MarkovLink(head, tail, edge["value"])
+        mc.add_state(head)
+        mc.add_state(tail)
+        mc.add_link(link)
+
+    return mc

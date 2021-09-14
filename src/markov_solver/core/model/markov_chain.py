@@ -136,7 +136,8 @@ class MarkovChain:
         graph.attr(rankdir="LR")
 
         for state in sorted(self.states):
-            graph.node(str(state), pos="{},{}!".format(int(state.value[0]) * 2, -int(state.value[1]) * 2))
+            graph.node(str(state))
+            # graph.node(str(state), pos="{},{}!".format(int(state.value[0]) * 2, -int(state.value[1]) * 2))
 
         for link in self.links:
             graph.edge(str(link.tail), str(link.head), str(link.value))
