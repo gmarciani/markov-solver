@@ -1,0 +1,19 @@
+symbols:
+  L: 1.0
+
+chain:
+  - from: "Sunny"
+    to: "Sunny"
+    value: "0.9*L"
+
+  - from: "Sunny"
+    to: "Rainy"
+    value: "0.1*L"
+
+  - from: "Rainy"
+    to: "Rainy"
+    value: "0.5*L"
+
+  - from: "Rainy"
+    to: "Sunny"
+    value: "0.5*L"
