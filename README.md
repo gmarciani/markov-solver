@@ -1,5 +1,7 @@
 ![Markov Chain Solver Banner](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/github-banner.svg)
 
+![Markov Chain Solver Demo](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/demo.gif)
+
 # Markov Solver
 *Utility to solve Markov Chains.*
 
