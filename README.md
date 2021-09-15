@@ -1,7 +1,5 @@
 ![Markov Chain Solver Banner](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/github-banner.svg)
 
-![Markov Chain Solver Demo](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/demo.gif)
-
 # Markov Solver
 *Utility to solve Markov Chains.*
 
@@ -15,6 +13,8 @@ pip install markov-solver
 ```
 
 ## Usage
+
+![Markov Chain Solver Demo](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/demo.gif)
 
 ### Chain with constant transition rates
 Let us image that we want to solve the following Markov chain:
