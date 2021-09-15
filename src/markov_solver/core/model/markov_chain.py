@@ -131,7 +131,7 @@ class MarkovChain:
             s += "{}\n".format(",".join(map(str, r)))
         return s
 
-    def render_graph(self, filename="out/MarkovChain"):
+    def render_graph(self, filename="out/MarkovChain", format="svg"):
         graph = Digraph(engine="dot")
         graph.attr(rankdir="LR")
 
@@ -142,7 +142,7 @@ class MarkovChain:
         for link in self.links:
             graph.edge(str(link.tail), str(link.head), str(link.value))
 
-        graph.render(filename=filename, format="svg")
+        graph.render(filename=filename, format=format)
 
     def __evaluate_factor(self, factor):
         if isinstance(factor, int) or isinstance(factor, float):

@@ -52,7 +52,8 @@ def solve(ctx, definition, outdir):
     report.save_txt(os.path.join(outdir, "result.txt"), append=True, empty=True)
     report.save_csv(os.path.join(outdir, "result.csv"), append=True, empty=True)
 
-    markov_chain.render_graph(os.path.join(outdir, "MarkovChain"))
+    markov_chain.render_graph(os.path.join(outdir, "MarkovChain"), "svg")
+    markov_chain.render_graph(os.path.join(outdir, "MarkovChain"), "png")
 
 
 if __name__ == "__main__":
