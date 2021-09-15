@@ -15,7 +15,7 @@ pip install markov-solver
 ### Chain with constant transition rates
 Let us image that we want to solve the following Markov chain:
 
-![Markov Chain Simple](resources/definitions/simple/simple.graph.svg)
+![Markov Chain Simple](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/definitions/simple/simple.graph.svg)
 
 We should create a YAML file that defines the chain:
 ```yaml
@@ -56,7 +56,7 @@ Sunny.........................................0.833333333333333
 ### Chain with symbolic transition rates
 Let us image that we want to solve the following Markov chain:
 
-![Markov Chain Symbolic](resources/definitions/symbolic/symbolic.graph.svg)
+![Markov Chain Symbolic](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/definitions/symbolic/symbolic.graph.svg)
 
 We should create a YAML file that defines the chain:
 ```yaml
