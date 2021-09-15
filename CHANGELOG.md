@@ -1,5 +1,10 @@
 # CHANGELOG
 
+0.0.4
+-----
+
+- Add images for chain examples in README
+
 0.0.3
 -----
 
