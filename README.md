@@ -112,8 +112,8 @@ We obtain the following result:
 Giacomo Marciani, [mgiacomo@amazon.com](mailto:mgiacomo@amazon.com)
 
 ## References
-* "Discrete-Event Simulation", 2006, L.M. Leemis, S.K. Park
-* "Performance Modeling and Design of Computer Systems, 2013, M. Harchol-Balter
+* ["Discrete-Event Simulation", 2006, L.M. Leemis, S.K. Park](https://www.amazon.com/Discrete-Event-Simulation-Lawrence-M-Leemis/dp/0131429175)
+* ["Performance Modeling and Design of Computer Systems, 2013, M. Harchol-Balter](https://www.amazon.com/Modeling-Simulation-Discrete-Event-Systems-ebook/dp/B00EMB3MXA)
 
 ## License
 The project is released under the [MIT License](https://opensource.org/licenses/MIT).
