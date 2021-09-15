@@ -17,7 +17,7 @@ def requirements():
 
 setup(
     name="markov-solver",
-    version="0.0.1",
+    version="0.0.2",
     author="Giacomo Marciani",
     description="Utility to solve Markov chains.",
     url="https://github.com/gmarciani/markov-solver",
