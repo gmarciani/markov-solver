@@ -132,7 +132,7 @@ class MarkovChain:
         return s
 
     def render_graph(self, filename="out/MarkovChain"):
-        graph = Digraph(engine="neato")
+        graph = Digraph(engine="dot")
         graph.attr(rankdir="LR")
 
         for state in sorted(self.states):
