@@ -1,0 +1,28 @@
+symbols:
+  lambda: 1.5
+  mu: 2.0
+
+chain:
+  - from: "0"
+    to: "1"
+    value: "lambda"
+
+  - from: "1"
+    to: "2"
+    value: "lambda"
+
+  - from: "2"
+    to: "3"
+    value: "lambda"
+
+  - from: "3"
+    to: "2"
+    value: "3*mu"
+
+  - from: "2"
+    to: "1"
+    value: "2*mu"
+
+  - from: "1"
+    to: "0"
+    value: "mu"
