@@ -10,7 +10,10 @@ def create_chain_from_file(path):
         definition = yaml.load(definition_file, Loader=yaml.FullLoader)
 
     mc = MarkovChain()
-    mc.add_symbols(**definition["symbols"])
+
+    if "symbols" in definition:
+        mc.add_symbols(**definition["symbols"])
+
     for edge in definition["chain"]:
         head = MarkovState(edge["from"])
         tail = MarkovState(edge["to"])
