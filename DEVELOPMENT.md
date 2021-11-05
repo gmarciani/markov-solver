@@ -23,6 +23,12 @@ python -m build
 ```
 
 ## Publish
+Publish to PyPi test repo at https://test.pypi.org/project/markov-solver:
 ```
 python -m twine upload --repository testpypi dist/*
+```
+
+Publish to PyPi production repo at https://pypi.org/project/markov-solver:
+```
+python -m twine upload dist/*
 ```
