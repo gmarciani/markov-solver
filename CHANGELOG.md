@@ -1,5 +1,10 @@
 # CHANGELOG
 
+1.0.1
+-----
+
+- [Dependencies] pyyaml-6.0
+
 1.0.0
 -----
 
