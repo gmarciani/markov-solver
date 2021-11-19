@@ -3,6 +3,7 @@
 1.0.1
 -----
 
+- [Dependencies] scipy-1.7.2
 - [Dependencies] colored-1.4.3
 - [Dependencies] click-8.0.3
 - [Dependencies] pyfiglet-0.8.post1
