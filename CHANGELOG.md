@@ -9,15 +9,18 @@
 - [Dependencies] click-8.0.3
 - [Dependencies] pyfiglet-0.8.post1
 
+
 1.0.0
 -----
 
 - First public release
 
+
 0.0.4
 -----
 
 - Add images for chain examples in README
+
 
 0.0.3
 -----
@@ -25,10 +28,12 @@
 - Add rendering of Markov chains
 - Add examples: simple and symbolic
 
+
 0.0.2
 -----
 
 - Add support for symbolic Markov chains
+
 
 0.0.1
 -----
