@@ -1,5 +1,10 @@
 # CHANGELOG
 
+1.0.1
+-----
+
+- [Dependencies] scipy-1.7.2
+
 1.0.0
 -----
 
