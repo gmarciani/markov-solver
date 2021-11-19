@@ -3,6 +3,7 @@
 1.0.1
 -----
 
+- [Dependencies] pyyaml-6.0
 - [Dependencies] scipy-1.7.2
 - [Dependencies] colored-1.4.3
 - [Dependencies] click-8.0.3
