@@ -4,10 +4,6 @@
 -----
 
 - [Dependencies] click-8.0.3
-
-1.0.0
------
-
 - [Dependencies] pyfiglet-0.8.post1
 
 1.0.0
