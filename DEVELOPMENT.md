@@ -3,7 +3,7 @@
 ## Requirements
 ```
 pip install --upgrade pip
-pip install --upgrade pre-commit build twine
+pip install -r requirements-dev.txt
 ```
 
 ## Configure PreCommit
