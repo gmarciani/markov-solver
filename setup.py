@@ -2,6 +2,8 @@ import os
 
 from setuptools import find_packages, setup
 
+from markov_solver.config.versioning import MARKOV_SOLVER_VERSION
+
 
 def readme():
     with open(os.path.join(os.path.dirname(__file__), "README.md"), encoding="utf-8") as f:
@@ -17,7 +19,7 @@ def requirements():
 
 setup(
     name="markov-solver",
-    version="1.0.0",
+    version=MARKOV_SOLVER_VERSION,
     author="Giacomo Marciani",
     description="Utility to solve Markov chains.",
     url="https://github.com/gmarciani/markov-solver",
