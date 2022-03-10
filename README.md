@@ -7,7 +7,6 @@
 * Python 3.6+
 
 ## Install
-Install the package, running:
 ```shell
 pip install markov-solver
 ```
