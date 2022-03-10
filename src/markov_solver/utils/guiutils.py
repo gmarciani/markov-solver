@@ -12,13 +12,13 @@ from markov_solver.utils.logutils import get_logger
 logger = get_logger(__name__)
 
 
-def get_splash():
+def get_splash(name):
     """
     Returns the Splash Screen as ASCII Art.
     :return: The Splash Screen.
     """
     f = Figlet(font="slant")
-    return "%s %s %s" % (fg("yellow"), f.renderText("Markov Solver"), attr(0))
+    return "%s %s %s" % (fg("yellow"), f.renderText(name), attr(0))
 
 
 def print_progress(iteration, total, prefix="PROGRESS", suffix="Complete", message="", decimals=0, bar_length=50):

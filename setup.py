@@ -2,7 +2,9 @@ import os
 
 from setuptools import find_packages, setup
 
-from markov_solver.config.versioning import MARKOV_SOLVER_VERSION
+METADATA = {}
+with open("./src/markov_solver/config/metadata.py") as metadata_file:
+    exec(metadata_file.read(), METADATA)
 
 
 def readme():
@@ -18,8 +20,8 @@ def requirements():
 
 
 setup(
-    name="markov-solver",
-    version=MARKOV_SOLVER_VERSION,
+    name=METADATA["NAME"],
+    version=METADATA["VERSION"],
     author="Giacomo Marciani",
     description="Utility to solve Markov chains.",
     url="https://github.com/gmarciani/markov-solver",
