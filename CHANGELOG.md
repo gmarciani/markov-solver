@@ -6,7 +6,7 @@
 ## IMPROVEMENTS
 - Fixed incomplete ordering in MarkovState and MarkovLink
 
-## DPENDENCIES
+## CHANGES
 - [Dependencies] pyyaml-6.0
 - [Dependencies] scipy-1.7.2
 - [Dependencies] colored-1.4.3
