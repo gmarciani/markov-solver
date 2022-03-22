@@ -18,6 +18,32 @@ class MarkovLink:
             return False
         return self.tail == other.tail and self.head == other.head and self.value == other.value
 
+    def __ne__(self, other):
+        if not isinstance(other, MarkovLink):
+            return False
+        return self.tail != other.tail or self.head != other.head or self.value != other.value
+
+    def __ge__(self, other):
+        if not isinstance(other, MarkovLink):
+            return False
+        if self.tail == other.tail:
+            return self.head >= other.head
+        return self.tail >= other.tail
+
+    def __gt__(self, other):
+        if not isinstance(other, MarkovLink):
+            return False
+        if self.tail == other.tail:
+            return self.head > other.head
+        return self.tail > other.tail
+
+    def __le__(self, other):
+        if not isinstance(other, MarkovLink):
+            return False
+        if self.tail == other.tail:
+            return self.head <= other.head
+        return self.tail <= other.tail
+
     def __lt__(self, other):
         if not isinstance(other, MarkovLink):
             return False

@@ -7,7 +7,6 @@
 * Python 3.6+
 
 ## Install
-Install the package, running:
 ```shell
 pip install markov-solver
 ```
@@ -15,7 +14,6 @@ pip install markov-solver
 ## Usage
 
 ![Markov Chain Solver Demo](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/demo.gif)
-![Markov Chain Solver Demo](resources/brand/demo2.gif)
 
 ### Chain with constant transition rates
 Let us image that we want to solve the following Markov chain:
