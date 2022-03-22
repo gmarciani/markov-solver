@@ -27,6 +27,26 @@ class MarkovState:
             return False
         return self.value == other.value
 
+    def __ne__(self, other):
+        if not isinstance(other, MarkovState):
+            return False
+        return self.value != other.value
+
+    def __ge__(self, other):
+        if not isinstance(other, MarkovState):
+            return False
+        return self.value >= other.value
+
+    def __gt__(self, other):
+        if not isinstance(other, MarkovState):
+            return False
+        return self.value > other.value
+
+    def __le__(self, other):
+        if not isinstance(other, MarkovState):
+            return False
+        return self.value <= other.value
+
     def __lt__(self, other):
         if not isinstance(other, MarkovState):
             return False

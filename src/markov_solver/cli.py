@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 
+import configparser
+import imp
 import os
 
 import click
 
+from markov_solver.config.metadata import NAME, VERSION
 from markov_solver.core.parser.markov_chain_parser import create_chain_from_file
 from markov_solver.utils import guiutils, logutils
 from markov_solver.utils.report import SimpleReport as Report
@@ -14,9 +17,9 @@ logger = logutils.get_logger(__name__)
 @click.group(invoke_without_command=True, context_settings=dict(max_content_width=120))
 @click.option("--debug/--no-debug", default=False, show_default=True, type=bool, help="Activate/Deactivate debug mode.")
 @click.pass_context
-@click.version_option(version="1.0.0")
+@click.version_option(version=VERSION)
 def main(ctx, debug):
-    print(guiutils.get_splash())
+    print(guiutils.get_splash(NAME))
     if ctx.invoked_subcommand is None:
         print(ctx.get_help())
     else:

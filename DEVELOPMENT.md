@@ -3,7 +3,7 @@
 ## Requirements
 ```
 pip install --upgrade pip
-pip install --upgrade pre-commit build twine
+pip install -r requirements-dev.txt
 ```
 
 ## Configure PreCommit
@@ -23,12 +23,12 @@ python -m build
 ```
 
 ## Publish
-Publish to PyPi test repo at https://test.pypi.org/project/markov-solver:
+Publish to PyPi test repo at https://test.pypi.org/project/markov-solver
 ```
 python -m twine upload --repository testpypi dist/*
 ```
 
-Publish to PyPi production repo at https://pypi.org/project/markov-solver:
+Publish to PyPi production repo at https://pypi.org/project/markov-solver
 ```
 python -m twine upload dist/*
 ```
