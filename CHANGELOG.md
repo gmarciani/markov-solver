@@ -10,7 +10,10 @@
 - [Dependencies] pyyaml-6.0
 - [Dependencies] scipy-1.7.2
 - [Dependencies] colored-1.4.3
-- [Dependencies] click-8.0.3
+- [Dependencies] click-8.0.4
+- [Dependencies] numpy-1.22.3
+- [Dependencies] networkx-2.7.1
+- [Dependencies] sympy-1.10
 - [Dependencies] pyfiglet-0.8.post1
 
 
