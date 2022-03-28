@@ -1,4 +1,4 @@
-click~=8.0.4
+click~=8.1.0
 colored~=1.4.3
 graphviz~=0.19
 networkx~=2.7.1
