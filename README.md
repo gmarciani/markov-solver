@@ -5,6 +5,7 @@
 
 ## Requirements
 * Python 3.6+
+* graphviz 12.0.0
 
 ## Install
 ```shell
