@@ -1,0 +1,16 @@
+chain:
+  - from: "Sunny"
+    to: "Sunny"
+    value: "0.9"
+
+  - from: "Sunny"
+    to: "Rainy"
+    value: "0.1"
+
+  - from: "Rainy"
+    to: "Rainy"
+    value: "0.5"
+
+  - from: "Rainy"
+    to: "Sunny"
+    value: "0.5"
