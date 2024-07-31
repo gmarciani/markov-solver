@@ -1,6 +1,6 @@
-import pytest
+import pytest  # type: ignore
 
-from assertpy import assert_that
+from assertpy import assert_that  # type: ignore
 from click.testing import CliRunner
 from markov_solver.cli import main
 
