@@ -2,3 +2,4 @@ build~=0.7.0
 pre-commit~=3.8.0
 setuptools~=67.6.0
 twine~=4.0.2
+tox~=4.16.0
