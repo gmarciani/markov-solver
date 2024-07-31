@@ -8,13 +8,17 @@ with open("./src/markov_solver/config/metadata.py") as metadata_file:
 
 
 def readme():
-    with open(os.path.join(os.path.dirname(__file__), "README.md"), encoding="utf-8") as f:
+    with open(
+        os.path.join(os.path.dirname(__file__), "README.md"), encoding="utf-8"
+    ) as f:
         return f.read()
 
 
 def requirements():
     dependencies = ["setuptools~=58.0.4"]
-    with open(os.path.join(os.path.dirname(__file__), "requirements.txt"), encoding="utf-8") as f:
+    with open(
+        os.path.join(os.path.dirname(__file__), "requirements.txt"), encoding="utf-8"
+    ) as f:
         dependencies.extend([line.strip() for line in f.readlines() if line.strip()])
     return dependencies
 

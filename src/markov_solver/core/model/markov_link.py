@@ -16,12 +16,20 @@ class MarkovLink:
     def __eq__(self, other):
         if not isinstance(other, MarkovLink):
             return False
-        return self.tail == other.tail and self.head == other.head and self.value == other.value
+        return (
+            self.tail == other.tail
+            and self.head == other.head
+            and self.value == other.value
+        )
 
     def __ne__(self, other):
         if not isinstance(other, MarkovLink):
             return False
-        return self.tail != other.tail or self.head != other.head or self.value != other.value
+        return (
+            self.tail != other.tail
+            or self.head != other.head
+            or self.value != other.value
+        )
 
     def __ge__(self, other):
         if not isinstance(other, MarkovLink):

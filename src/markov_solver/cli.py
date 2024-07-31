@@ -15,7 +15,13 @@ logger = logutils.get_logger(__name__)
 
 
 @click.group(invoke_without_command=True, context_settings=dict(max_content_width=120))
-@click.option("--debug/--no-debug", default=False, show_default=True, type=bool, help="Activate/Deactivate debug mode.")
+@click.option(
+    "--debug/--no-debug",
+    default=False,
+    show_default=True,
+    type=bool,
+    help="Activate/Deactivate debug mode.",
+)
 @click.pass_context
 @click.version_option(version=VERSION)
 def main(ctx, debug):

@@ -1,5 +1,5 @@
-import sympy
-from graphviz import Digraph
+import sympy  # type: ignore
+from graphviz import Digraph  # type: ignore
 
 from markov_solver.core.model.markov_link import MarkovLink
 from markov_solver.core.model.markov_state import MarkovState
@@ -51,7 +51,9 @@ class MarkovChain:
                 link_value = 0.0 if link is None else link.value
                 row.append(link_value)
                 if link_value != 0.0:
-                    normalization_factor = "+".join(filter(None, (normalization_factor, link_value)))
+                    normalization_factor = "+".join(
+                        filter(None, (normalization_factor, link_value))
+                    )
             for i in range(len(row)):
                 if row[i] != 0.0:
                     row[i] = "({})/({})".format(row[i], normalization_factor)
@@ -153,7 +155,9 @@ class MarkovChain:
         return round(eval(value), FLOATING_POINT_PRECISION)
 
     def __str__(self):
-        return "States: {}\nLinks: {}\nSymbols: {}\n".format(sorted(self.states), sorted(self.links), self.symbols)
+        return "States: {}\nLinks: {}\nSymbols: {}\n".format(
+            sorted(self.states), sorted(self.links), self.symbols
+        )
 
     def __repr__(self):
         return self.__str__()

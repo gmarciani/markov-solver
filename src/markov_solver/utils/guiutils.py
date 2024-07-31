@@ -4,8 +4,8 @@ Utilities for CLI.
 
 import sys
 
-from colored import attr, fg
-from pyfiglet import Figlet
+from colored import attr, fg  # type: ignore
+from pyfiglet import Figlet  # type: ignore
 
 from markov_solver.utils.logutils import get_logger
 
@@ -21,7 +21,15 @@ def get_splash(name):
     return "%s %s %s" % (fg("yellow"), f.renderText(name), attr(0))
 
 
-def print_progress(iteration, total, prefix="PROGRESS", suffix="Complete", message="", decimals=0, bar_length=50):
+def print_progress(
+    iteration,
+    total,
+    prefix="PROGRESS",
+    suffix="Complete",
+    message="",
+    decimals=0,
+    bar_length=50,
+):
     format_string = "{0:." + str(decimals) + "f}"
     percents = format_string.format(100 * (iteration / float(total)))
     filled_length = int(round(bar_length * iteration / float(total)))
@@ -30,12 +38,13 @@ def print_progress(iteration, total, prefix="PROGRESS", suffix="Complete", messa
     sys.stdout.flush()
 
     sys.stdout.write(
-        "\r%s [%s] %s%% %s (%d/%d) { %s }" % (prefix, bar, percents, suffix, iteration, total, message or "no message")
+        "\r%s [%s] %s%% %s (%d/%d) { %s }"
+        % (prefix, bar, percents, suffix, iteration, total, message or "no message")
     )
 
 
 if __name__ == "__main__":
-    print(get_splash())
+    print(get_splash("Program Name"))
 
     from time import sleep
 

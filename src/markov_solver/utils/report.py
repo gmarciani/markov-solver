@@ -48,7 +48,11 @@ class SimpleReport(object):
         :return: (void)
         """
         for attr in obj.__dict__:
-            if not attr.startswith("__") and not attr.startswith("_") and not callable(getattr(obj, attr)):
+            if (
+                not attr.startswith("__")
+                and not attr.startswith("_")
+                and not callable(getattr(obj, attr))
+            ):
                 value = obj.__dict__[attr]
                 if isinstance(value, float):
                     self.add(section_title, attr, round(value, PREC))
@@ -117,7 +121,9 @@ class SimpleReport(object):
         for section in self.params:
             for p in self.params[section]:
                 header.append("{}_{}".format(section, p[0]))
-                row.append(str(round(p[1], PREC)) if isinstance(p[1], float) else str(p[1]))
+                row.append(
+                    str(round(p[1], PREC)) if isinstance(p[1], float) else str(p[1])
+                )
         data = [row]
         save_csv(filename, header, data, append, skip_header, empty)
 
@@ -130,13 +136,22 @@ class SimpleReport(object):
 
         fmt_title = "\n{}\n{:^" + str(WIDTH) + "}\n{}\n"
         fmt_section = "\n{:^" + str(WIDTH) + "}\n"
-        fmt_value = "{:.<" + str(int(PART * WIDTH)) + "}{:.>" + str(int((1.0 - PART) * WIDTH)) + "}\n"
+        fmt_value = (
+            "{:.<"
+            + str(int(PART * WIDTH))
+            + "}{:.>"
+            + str(int((1.0 - PART) * WIDTH))
+            + "}\n"
+        )
 
         s = fmt_title.format(title_separator, self.title, title_separator)
 
         for section in self.params.items():
             s += fmt_section.format(section[0])
             for p in section[1]:
-                s += fmt_value.format(str(p[0]), str(round(p[1], PREC)) if isinstance(p[1], float) else str(p[1]))
+                s += fmt_value.format(
+                    str(p[0]),
+                    str(round(p[1], PREC)) if isinstance(p[1], float) else str(p[1]),
+                )
 
         return s

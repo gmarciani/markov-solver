@@ -1,4 +1,4 @@
-import yaml
+import yaml  # type: ignore
 
 from markov_solver.core.model.markov_chain import MarkovChain
 from markov_solver.core.model.markov_link import MarkovLink
