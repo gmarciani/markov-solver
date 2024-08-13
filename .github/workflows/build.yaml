@@ -6,6 +6,16 @@ on:
   schedule:
     - cron: "0 07 * * FRI"
 
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: |
+          ref: the branch, tag or SHA to checkout.
+          If empty, the ref is inferred from the event that triggered the workflow.
+        required: false
+        default: ''
+        type: string
+
 jobs:
   build_wheels:
     name: Build for Python ${{ matrix.python }} on ${{ matrix.os }}
@@ -19,8 +29,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          submodules: true
-          fetch-depth: 0
+          ref: ${{ inputs.ref }}
 
       - name: Install Python ${{ matrix.python }}
         uses: actions/setup-python@v5
