@@ -10,7 +10,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - uses: dangoslen/changelog-enforcer@v1.4.0
+    - uses: dangoslen/changelog-enforcer@v3
       with:
         changeLogPath: CHANGELOG.md
-        skipLabel: skip-changelog-update
+        skipLabels: skip-changelog-update
