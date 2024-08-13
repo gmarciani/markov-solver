@@ -13,7 +13,7 @@
 - [Dependencies] networkx-2.7.1
 - [Dependencies] numpy-1.22.3
 - [Dependencies] pyfiglet-1.0.2
-- [Dependencies] pyyaml-6.0.1
+- [Dependencies] pyyaml-6.0.2
 - [Dependencies] scipy-1.14.0
 - [Dependencies] sympy-1.13.1
 
