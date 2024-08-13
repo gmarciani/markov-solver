@@ -6,6 +6,7 @@ on:
       - mainline
     paths:
       - .github/labels.yaml
+      - .github/workflows/sync-labels.yaml
 
 jobs:
   sync:
@@ -14,7 +15,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Sync labels
+      - name: Sync Labels
         uses: b4b4r07/github-labeler@master
+        with:
+          config: .github/labels.yaml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
