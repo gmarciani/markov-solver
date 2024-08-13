@@ -32,30 +32,37 @@ def test_solve_command_no_args(runner):
     "definition_file, expected_exit_code, expected_probabilities",
     [
         (
-                "definitions/simple/simple.definition.yaml",
-                0,
-                [
-                    r"Rainy.+0\.166666666666667",
-                    r"Sunny.+0\.833333333333333"
-                ]
+            "definitions/simple/simple.definition.yaml",
+            0,
+            [r"Rainy.+0\.166666666666667", r"Sunny.+0\.833333333333333"],
         ),
         (
-                "definitions/symbolic/symbolic.definition.yaml",
-                0,
-                [
-                    r"0.+0\.475836431226766",
-                    r"1.+0\.356877323420074",
-                    r"2.+0\.133828996282528",
-                    r"3.+0\.0334572490706320"
-                ]
+            "definitions/symbolic/symbolic.definition.yaml",
+            0,
+            [
+                r"0.+0\.475836431226766",
+                r"1.+0\.356877323420074",
+                r"2.+0\.133828996282528",
+                r"3.+0\.0334572490706320",
+            ],
         ),
     ],
 )
-def test_solve_command_with_args(runner, resource_path_root, tmp_path, definition_file, expected_exit_code, expected_probabilities):
+def test_solve_command_with_args(
+    runner,
+    resource_path_root,
+    tmp_path,
+    definition_file,
+    expected_exit_code,
+    expected_probabilities,
+):
     definition_file_path = resource_path_root.joinpath(definition_file)
     outdir = tmp_path / "output"
 
-    result = runner.invoke(main, ["solve", "--definition", str(definition_file_path), "--outdir", str(outdir)])
+    result = runner.invoke(
+        main,
+        ["solve", "--definition", str(definition_file_path), "--outdir", str(outdir)],
+    )
 
     assert_that(result.exit_code).is_equal_to(expected_exit_code)
     for expected_probability in expected_probabilities:
