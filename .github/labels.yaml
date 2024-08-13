@@ -1,52 +1,52 @@
 labels:
   - name: Backlog
     description: Added to team backlog.
-    color: 1d76db
+    color: 1D76DB
   - name: Bug
     description: Something isn't working.
-    color: d73a4a
+    color: D73A4A
   - name: Dependencies
     description: Changes to dependencies.
-    color: 0366d6
+    color: 4DD3AD
   - name: Developer Experience
     description: Improvements or additions related to developer experience.
-    color: a4418d
+    color: A4418D
   - name: Documentation
     description: Improvements or additions to documentation.
-    color: 0075ca
+    color: F7AC22
   - name: Duplicate
     description: This issue or pull request already exists.
-    color: cfd3d7
+    color: CFD3D7
   - name: Enhancement
     description: New feature or improvement.
-    color: a2eeef
+    color: A2EEEF
   - name: Feature Request
     description: Request for a new feature.
-    color: c2e0c6
+    color: C2E0C6
   - name: Help Wanted
     description: Extra attention is needed.
     color: 008672
   - name: Invalid
     description: This doesn't seem right.
-    color: e4e669
+    color: E4E669
   - name: Question
     description: Further information is requested.
-    color: d876e3
+    color: D876E3
   - name: Security
     description: Improvements or additions related to security.
-    color: 15631c
+    color: 15631C
   - name: Skip Changelog Update
     description: Changing changelog is not required.
-    color: 7fac53
+    color: 7FAC53
   - name: Test
     description: Improvements or additions related to testing.
-    color: 7fac53
+    color: 95C8EA
   - name: Triage
     description: The issue must be triaged.
-    color: 7fac53
+    color: 985721
   - name: Wont Fix
     description: This will not be worked on.
-    color: ffffff
+    color: FFFFFF
 
 repos:
   - name: gmarciani/markov-solver
