@@ -14,7 +14,16 @@ pip install markov-solver
 
 ## Usage
 
+You can use `markov-solver` as a CLI or as a library in your project.
+
+To use it as a CLI, check the recorded demo:
+
 ![Markov Chain Solver Demo](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/demo.gif)
+
+To use it as a library, you can check the [examples](./examples).
+
+In both cases you need to define the Markov Chain to solve.
+See the instructions below to know how to do it.
 
 ### Chain with constant transition rates
 Let us image that we want to solve the following Markov chain:
