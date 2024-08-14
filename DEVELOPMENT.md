@@ -48,7 +48,7 @@ VERSION="1.0.1"
 gh release create v${VERSION} \
 --title "markov-solver v$VERSION" \
 --target mainline \
---notes CHANGELOG.md \
+--notes-file CHANGELOG.md \
 --latest \
 --draft
 ```
