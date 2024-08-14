@@ -32,3 +32,18 @@ Publish to PyPi production repo at https://pypi.org/project/markov-solver
 ```
 python -m twine upload dist/*
 ```
+
+## Publish a new release
+```
+VERSION="1.0.1"
+gh release create v${VERSION} \
+--title "markov-solver v$VERSION" \
+--target mainline \
+--notes CHANGELOG.md \
+--latest \
+--draft
+```
+
+```
+gh release edit v${VERSION} --draft=false
+```
