@@ -15,7 +15,7 @@ def readme():
 
 
 def requirements():
-    dependencies = ["setuptools~=58.0.4"]
+    dependencies = []
     with open(
         os.path.join(os.path.dirname(__file__), "requirements.txt"), encoding="utf-8"
     ) as f:
