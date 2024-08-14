@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 1.0.2
+*Pending Release*
+
+### Bug Fixes
+- TBD
+
+### Improvements
+- TBD
+
+### Changes
+- TBD
+
 ## 1.0.1
 
 ### Bug Fixes
