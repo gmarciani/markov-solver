@@ -33,7 +33,16 @@ Publish to PyPi production repo at https://pypi.org/project/markov-solver
 python -m twine upload dist/*
 ```
 
+## Configure secrets
+```
+PYPI_API_TOKEN_BODY=$(cat resources/secrets/pypi-token.txt)
+gh secret set "PYPI_API_TOKEN" \
+  --app "actions" \
+  --body "${PYPI_API_TOKEN_BODY}"
+```
+
 ## Publish a new release
+Create a draft release:
 ```
 VERSION="1.0.1"
 gh release create v${VERSION} \
@@ -44,6 +53,14 @@ gh release create v${VERSION} \
 --draft
 ```
 
+Make changes to the release notes.
+
+Publish the release:
 ```
 gh release edit v${VERSION} --draft=false
+```
+
+To delete a release from GitHub:
+```
+gh release delete v${VERSION} --cleanup-tag --yes
 ```
