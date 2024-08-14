@@ -2,6 +2,8 @@
 
 ## Requirements
 ```
+pyenv virtualenv 3.10.13 markov-solver-dev
+pyenv activate markov-solver-dev
 pip install --upgrade pip
 pip install -r requirements-dev.txt
 ```
@@ -23,17 +25,11 @@ python -m build
 ```
 
 ## Publish
-Publish to PyPi test repo at https://test.pypi.org/project/markov-solver
-```
-python -m twine upload --repository testpypi dist/*
-```
+To publish a new release on PyPI, you need to create a new release on GitHub, 
+which in turns triggers a GitHub action to publish the release on PyPI.
 
-Publish to PyPi production repo at https://pypi.org/project/markov-solver
-```
-python -m twine upload dist/*
-```
+To this aim, you first need to store the PyPI API Token as a secret on GitHub:
 
-## Configure secrets
 ```
 PYPI_API_TOKEN_BODY=$(cat resources/secrets/pypi-token.txt)
 gh secret set "PYPI_API_TOKEN" \
@@ -41,10 +37,10 @@ gh secret set "PYPI_API_TOKEN" \
   --body "${PYPI_API_TOKEN_BODY}"
 ```
 
-## Publish a new release
 Create a draft release:
+
 ```
-VERSION="1.0.1"
+VERSION="1.0.0"
 gh release create v${VERSION} \
 --title "markov-solver v$VERSION" \
 --target mainline \
@@ -56,11 +52,25 @@ gh release create v${VERSION} \
 Make changes to the release notes.
 
 Publish the release:
+
 ```
 gh release edit v${VERSION} --draft=false
 ```
 
-To delete a release from GitHub:
+If you need to delete the release from GitHub:
+
 ```
 gh release delete v${VERSION} --cleanup-tag --yes
+```
+
+### Manually publish to PyPI test
+Publish to PyPi test repo at https://test.pypi.org/project/markov-solver
+```
+python -m twine upload --repository testpypi dist/*
+```
+
+### Manually publish to PyPI prod
+Publish to PyPi production repo at https://pypi.org/project/markov-solver
+```
+python -m twine upload dist/*
 ```
