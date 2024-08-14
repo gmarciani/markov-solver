@@ -1,49 +1,47 @@
 # CHANGELOG
 
-1.0.1
------
+## 1.0.1
 
-## IMPROVEMENTS
+### Bug Fixes
 - Fixed incomplete ordering in MarkovState and MarkovLink.
+
+### Improvements
 - Added a real example to show how to use the library.
 
-## CHANGES
-- [Dependencies] pyyaml-6.0
-- [Dependencies] scipy-1.7.2
-- [Dependencies] colored-1.4.3
-- [Dependencies] click-8.0.4
-- [Dependencies] numpy-1.22.3
-- [Dependencies] networkx-2.7.1
-- [Dependencies] sympy-1.10
-- [Dependencies] pyfiglet-0.8.post1
+### Changes
+- Upgraded `click` to version 8.1.7.
+- Upgraded `colored` to version 2.2.4.
+- Upgraded `graphviz` to version 0.20.3.
+- Upgraded `networkx` to version 3.2.1.
+- Upgraded `numpy` to version 2.0.1.
+- Upgraded `pyfiglet` to version 1.0.2.
+- Upgraded `pyyaml` to version 6.0.2.
+- Upgraded `scipy` to version 1.13.1.
+- Upgraded `setuptools` to version 72.1.0.
+- Upgraded `sympy` to version 1.13.1.
 
 
-1.0.0
------
+## 1.0.0
 
 - First public release
 
 
-0.0.4
------
+## 0.0.4
 
 - Add images for chain examples in README
 
 
-0.0.3
------
+## 0.0.3
 
 - Add rendering of Markov chains
 - Add examples: simple and symbolic
 
 
-0.0.2
------
+## 0.0.2
 
 - Add support for symbolic Markov chains
 
 
-0.0.1
------
+## 0.0.1
 
 - Release on GitHub and PyPi
