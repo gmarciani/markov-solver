@@ -4,7 +4,7 @@
 -----
 
 ## IMPROVEMENTS
-- Fixed incomplete ordering in MarkovState and MarkovLink
+- Added a real example to show how to use the library.
 
 ## CHANGES
 - [Dependencies] click-8.1.7
