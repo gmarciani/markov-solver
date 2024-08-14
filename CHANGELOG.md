@@ -7,15 +7,16 @@
 - Added a real example to show how to use the library.
 
 ## CHANGES
-- [Dependencies] click-8.1.7
-- [Dependencies] colored-2.2.4
-- [Dependencies] graphviz-0.20.3
-- [Dependencies] networkx-2.7.1
-- [Dependencies] numpy-1.22.3
-- [Dependencies] pyfiglet-1.0.2
-- [Dependencies] pyyaml-6.0.2
-- [Dependencies] scipy-1.14.0
-- [Dependencies] sympy-1.13.1
+- [Dependencies] click 8.1.7
+- [Dependencies] colored 2.2.4
+- [Dependencies] graphviz 0.20.3
+- [Dependencies] networkx 3.2.1
+- [Dependencies] numpy 2.0.1
+- [Dependencies] pyfiglet 1.0.2
+- [Dependencies] pyyaml 6.0.2
+- [Dependencies] scipy 1.13.1
+- [Dependencies] setuptools 72.1.0
+- [Dependencies] sympy 1.13.1
 
 
 1.0.1
