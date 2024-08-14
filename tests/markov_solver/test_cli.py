@@ -19,7 +19,7 @@ def test_main_help(runner):
 def test_main_version(runner):
     result = runner.invoke(main, ["--version"])
     assert_that(result.exit_code).is_equal_to(0)
-    assert_that(result.output).contains("version 1.0.2")
+    assert_that(result.output).contains("version 1.0.1")
 
 
 def test_solve_command_no_args(runner):
