@@ -1,4 +1,4 @@
-setuptools~=72.1.0
+setuptools~=75.2.0
 click~=8.1.7
 colored~=2.2.4
 graphviz~=0.20.3
