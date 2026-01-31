@@ -3,14 +3,14 @@
 <div align="center">
 <img src="https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/banner.png" alt="markov-solver-banner" width="500">
 
-[![PyPI version](https://img.shields.io/pypi/v/cli-wizard.svg)](https://pypi.org/project/markov-solver)
-[![Python versions](https://img.shields.io/pypi/pyversions/cli-wizard.svg)](https://pypi.org/project/markov-solver)
-[![License](https://img.shields.io/github/license/gmarciani/cli-wizard.svg)](https://github.com/gmarciani/markov-solver/blob/main/LICENSE)
-[![Build status](https://img.shields.io/github/actions/workflow/status/gmarciani/cli-wizard/test.yml?branch=main)](https://github.com/gmarciani/markov-solver/actions)
-[![Tests](https://img.shields.io/github/actions/workflow/status/gmarciani/cli-wizard/test.yml?branch=main&label=tests)](https://github.com/gmarciani/markov-solver/actions)
-[![Coverage](https://img.shields.io/codecov/c/github/gmarciani/cli-wizard)](https://codecov.io/gh/gmarciani/markov-solver)
+[![PyPI version](https://img.shields.io/pypi/v/markov-solver.svg)](https://pypi.org/project/markov-solver)
+[![Python versions](https://img.shields.io/pypi/pyversions/markov-solver.svg)](https://pypi.org/project/markov-solver)
+[![License](https://img.shields.io/github/license/gmarciani/markov-solver.svg)](https://github.com/gmarciani/markov-solver/blob/main/LICENSE)
+[![Build status](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=mainline)](https://github.com/gmarciani/markov-solver/actions)
+[![Tests](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=mainline&label=tests)](https://github.com/gmarciani/markov-solver/actions)
+[![Coverage](https://img.shields.io/codecov/c/github/gmarciani/markov-solver)](https://codecov.io/gh/gmarciani/markov-solver)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Downloads](https://img.shields.io/pypi/dm/cli-wizard.svg)](https://pypi.org/project/markov-solver)
+[![Downloads](https://img.shields.io/pypi/dm/markov-solver.svg)](https://pypi.org/project/markov-solver)
 
 </div>
 
@@ -27,7 +27,13 @@ Solve Markov Chains in a glance.
 
 ## Features
 
-TBD
+- **Solve Markov Chains**: Compute steady-state probabilities for discrete-time Markov chains.
+- **Symbolic Transition Rates**: Define transition rates using symbolic expressions with named parameters.
+- **YAML Chain Definitions**: Define Markov chains in simple, human-readable YAML files.
+- **Graph Visualization**: Automatically render Markov chain diagrams in SVG and PNG formats using Graphviz.
+- **CLI and Library**: Use as a command-line tool or integrate directly into your Python projects.
+- **Export Results**: Save solutions to TXT and CSV files for further analysis.
+- **High Precision**: Calculations with 12 decimal places of floating-point precision.
 
 ## Installation
 
