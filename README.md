@@ -1,4 +1,4 @@
-# CLI WIZARD
+# MARKOV SOLVER
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/banner.png" alt="markov-solver-banner" width="500">
