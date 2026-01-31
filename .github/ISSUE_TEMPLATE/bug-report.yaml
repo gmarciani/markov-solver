@@ -3,7 +3,7 @@ description: File a bug report.
 title: "[Bug]: "
 labels: ["Bug", "Triage"]
 assignees:
-  - octocat
+  - gmarciani
 body:
   - type: markdown
     attributes:
@@ -13,8 +13,26 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: Also tell us, what did you expect to happen?
+      description: Describe the bug you encountered.
       placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. See error
     validations:
       required: true
   - type: input
@@ -25,12 +43,14 @@ body:
       placeholder: 1.0.0
     validations:
       required: true
-  - type: input
-    id: python-version
+  - type: dropdown
+    id: os
     attributes:
-      label: Python Version
-      description: What Python version are you seeing the problem on?
-      placeholder: 3.10.0
+      label: Operating System
+      options:
+        - Linux
+        - macOS
+        - Windows
     validations:
       required: true
   - type: textarea
@@ -43,7 +63,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/gmarciani/markov-solver/blob/mainline/CODE_OF_CONDUCT.md).
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/gmarciani/markov-solver/blob/main/CODE_OF_CONDUCT.md).
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

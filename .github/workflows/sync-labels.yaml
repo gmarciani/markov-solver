@@ -1,12 +1,16 @@
 name: Sync Labels
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - mainline
+      - main
     paths:
       - .github/labels.yaml
       - .github/workflows/sync-labels.yaml
+
+permissions:
+  issues: write
 
 jobs:
   sync:
@@ -16,7 +20,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Sync Labels
-        uses: b4b4r07/github-labeler@master # 8f4b7f84864484a7bf31766abe9204da3cbe65b3
+        uses: b4b4r07/github-labeler@master
         with:
           config: .github/labels.yaml
         env:

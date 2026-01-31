@@ -17,5 +17,5 @@
 - Make sure **to have added unit tests or integration tests** to cover the new/modified code.
 - Check if documentation is impacted by this change.
 
-By submitting this pull request, I confirm that my contribution is compliant with 
+By submitting this pull request, I confirm that my contribution is compliant with
 the [contributing guidelines](../CONTRIBUTING.md) and the the [LICENSE](../LICENSE).
