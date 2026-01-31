@@ -1,0 +1,96 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "markov-solver"
+dynamic = ["version"]
+description = "Generate modern CLIs from OpenAPI specifications"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Giacomo Marciani", email = "giacomo.marciani@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+requires-python = ">=3.12"
+dependencies = [
+    "click~=8.1",
+    "colored~=2.2",
+    "graphviz~=0.20",
+    "networkx~=3.2",
+    "numpy~=2.0",
+    "pyfiglet~=1.0",
+    "pyyaml~=6.0",
+    "scipy~=1.13",
+    "sympy~=1.13",
+]
+
+[project.optional-dependencies]
+dev = [
+    "autoflake~=2.3",
+    "black~=26.1",
+    "build~=1.3",
+    "flake8~=7.3",
+    "mypy~=1.18",
+    "pre-commit~=4.0",
+    "pytest~=9.0",
+    "pytest-cov~=7.0",
+    "pytest-resource-path~=1.3",
+    "assertpy~=1.1",
+    "tox~=4.32",
+    "twine~=6.2",
+    "types-PyYAML~=6.0",
+    "types-requests~=2.32",
+]
+docs = [
+    "sphinx~=9.1",
+    "sphinx-click~=6.0",
+    "sphinx-rtd-theme~=3.0",
+    "sphinx-new-tab-link~=0.8",
+    "autodoc_pydantic~=2.2",
+]
+
+[project.scripts]
+markov-solver = "markov_solver.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gmarciani/markov-solver"
+Repository = "https://github.com/gmarciani/markov-solver"
+Issues = "https://github.com/gmarciani/markov-solver/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["markov_solver*"]
+
+[tool.setuptools.package-data]
+markov_solver = ["templates/*.j2", "templates/bootstrap/*.j2", "templates/bootstrap/github/workflows/*.j2", "config/*.yaml"]
+
+[tool.setuptools.dynamic]
+version = {file = "VERSION"}
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.coverage.run]
+omit = ["*/__init__.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "if __name__ == .__main__.:",
+    "pragma: no cover",
+]
