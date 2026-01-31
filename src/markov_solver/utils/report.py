@@ -2,8 +2,8 @@
 Utility classes that realize reports for experiments.
 """
 
-
 from collections import OrderedDict
+from typing import Any, List, Optional, Tuple
 
 from markov_solver.utils.csv_utils import save_csv
 from markov_solver.utils.file_utils import create_dir_tree, empty_file
@@ -18,15 +18,15 @@ class SimpleReport(object):
     The simplest report for an experiment.
     """
 
-    def __init__(self, title):
+    def __init__(self, title: str) -> None:
         """
         Creates a new report.
         :param title: (string) the title of the report.
         """
         self.title = title
-        self.params = OrderedDict()
+        self.params: OrderedDict[str, List[Tuple[str, Any]]] = OrderedDict()
 
-    def add(self, section_title, param_title, param_value):
+    def add(self, section_title: str, param_title: str, param_value: Any) -> None:
         """
         Adds a new parameter to the report.
         :param section_title: (string) the title of the section for the new
@@ -39,7 +39,7 @@ class SimpleReport(object):
             self.params[section_title] = []
         self.params[section_title].append((param_title, param_value))
 
-    def add_all(self, section_title, obj):
+    def add_all(self, section_title: str, obj: Any) -> None:
         """
         Add all object public attributes.
         :param section_title: (string) the title of the section for the new
@@ -59,7 +59,7 @@ class SimpleReport(object):
                 else:
                     self.add(section_title, attr, str(value))
 
-    def add_all_attrs(self, section_title, obj, *attrs):
+    def add_all_attrs(self, section_title: str, obj: Any, *attrs: str) -> None:
         """
         Add all object attributes.
         :param section_title: (string) the title of the section for the new
@@ -76,7 +76,7 @@ class SimpleReport(object):
                 else:
                     self.add(section_title, attr, value)
 
-    def get(self, section_title, param_title):
+    def get(self, section_title: str, param_title: str) -> Optional[Any]:
         """
         Retrieve the value of the given parameter.
         :param section_title: the title of the section.
@@ -88,7 +88,9 @@ class SimpleReport(object):
                 return elem[1]
         return None
 
-    def save_txt(self, filename, append=False, empty=False):
+    def save_txt(
+        self, filename: str, append: bool = False, empty: bool = False
+    ) -> None:
         """
         Save the report onto a file.
         :param filename: (string) the absolute file path.
@@ -106,7 +108,13 @@ class SimpleReport(object):
         with open(filename, mode) as f:
             f.write(str(self))
 
-    def save_csv(self, filename, append=False, skip_header=False, empty=False):
+    def save_csv(
+        self,
+        filename: str,
+        append: bool = False,
+        skip_header: bool = False,
+        empty: bool = False,
+    ) -> None:
         """
         Save the current statistics as CSV.
         :param filename: (string) the filename.
@@ -116,7 +124,7 @@ class SimpleReport(object):
         :return: None
         """
         header = ["name"]
-        row = [self.title]
+        row: List[str] = [self.title]
 
         for section in self.params:
             for p in self.params[section]:
@@ -124,10 +132,10 @@ class SimpleReport(object):
                 row.append(
                     str(round(p[1], PREC)) if isinstance(p[1], float) else str(p[1])
                 )
-        data = [row]
+        data = [tuple(row)]
         save_csv(filename, header, data, append, skip_header, empty)
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Return the string representation.
         :return: (string) the string representation.

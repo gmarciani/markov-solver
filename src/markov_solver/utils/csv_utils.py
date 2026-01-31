@@ -3,13 +3,21 @@ Utilities for CSV file management.
 """
 
 from csv import DictReader
+from typing import Any, Dict, List, Tuple
 
 from markov_solver.utils.file_utils import create_dir_tree, empty_file, is_empty_file
 
 CHAR_TO_REPLACE = [" ", "/"]
 
 
-def save_csv(filename, names, data, append=False, skip_header=False, empty=False):
+def save_csv(
+    filename: str,
+    names: List[str],
+    data: List[Tuple[Any, ...]],
+    append: bool = False,
+    skip_header: bool = False,
+    empty: bool = False,
+) -> None:
     """
     Save data as CSV.
     :param filename: (string) the filename.
@@ -37,7 +45,7 @@ def save_csv(filename, names, data, append=False, skip_header=False, empty=False
             f.write("\n")
 
 
-def str_csv(s):
+def str_csv(s: str) -> str:
     """
     Make the string compatible with the CSV format.
     :param s: (str) the string.
@@ -48,13 +56,13 @@ def str_csv(s):
     return s.lower()
 
 
-def read_csv(file_path):
+def read_csv(file_path: str) -> List[Dict[str, str]]:
     """
     Creates a list of dictionaries from a CSV file.
     :param file_path: (str) the CSV file path.
     :return: (list(dict)) the list of dictionaries containing the CSV data.
     """
-    dict_list = []
+    dict_list: List[Dict[str, str]] = []
 
     with open(file_path, "r") as f:
         for line in DictReader(f):

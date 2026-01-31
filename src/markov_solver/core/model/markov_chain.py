@@ -1,3 +1,5 @@
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
+
 import sympy  # type: ignore
 from graphviz import Digraph  # type: ignore
 
@@ -8,47 +10,51 @@ FLOATING_POINT_PRECISION = 12
 
 
 class MarkovChain:
-    def __init__(self):
-        self.states = set()
-        self.links = set()
-        self.symbols = dict()
+    def __init__(self) -> None:
+        self.states: Set[MarkovState] = set()
+        self.links: Set[MarkovLink] = set()
+        self.symbols: Dict[str, float] = dict()
 
-    def add_state(self, value):
+    def add_state(self, value: Union[MarkovState, Any]) -> MarkovState:
         state = value if isinstance(value, MarkovState) else MarkovState(value)
         self.states.add(state)
         return state
 
-    def add_link(self, link):
+    def add_link(self, link: MarkovLink) -> bool:
         if link not in self.links:
             self.links.add(link)
             return True
         return False
 
-    def add_symbols(self, **kwargs):
+    def add_symbols(self, **kwargs: float) -> None:
         for symbol, value in kwargs.items():
             self.symbols[symbol] = value
 
-    def in_links(self, state):
-        return list(l for l in self.links if l.head == state)
+    def in_links(self, state: MarkovState) -> List[MarkovLink]:
+        return list(link for link in self.links if link.head == state)
 
-    def out_links(self, state):
-        return list(l for l in self.links if l.tail == state)
+    def out_links(self, state: MarkovState) -> List[MarkovLink]:
+        return list(link for link in self.links if link.tail == state)
 
-    def find_link(self, state1, state2):
-        return next((l for l in self.out_links(state1) if l.head == state2), None)
+    def find_link(
+        self, state1: MarkovState, state2: MarkovState
+    ) -> Optional[MarkovLink]:
+        return next(
+            (link for link in self.out_links(state1) if link.head == state2), None
+        )
 
-    def get_states(self):
+    def get_states(self) -> List[MarkovState]:
         return sorted(self.states)
 
-    def transition_matrix(self, evaluate=False):
+    def transition_matrix(self, evaluate: bool = False) -> List[List[Any]]:
         states = sorted(self.get_states())
-        tmatrix = []
+        tmatrix: List[List[Any]] = []
         for state1 in states:
-            row = []
-            normalization_factor = None
+            row: List[Any] = []
+            normalization_factor: Optional[str] = None
             for state2 in states:
                 link = self.find_link(state1, state2)
-                link_value = 0.0 if link is None else link.value
+                link_value: Any = 0.0 if link is None else link.value
                 row.append(link_value)
                 if link_value != 0.0:
                     normalization_factor = "+".join(
@@ -64,7 +70,7 @@ class MarkovChain:
                     tmatrix[r][c] = self.__evaluate_factor(tmatrix[r][c])
         return tmatrix
 
-    def solve(self):
+    def solve(self) -> Dict[str, Any]:
         """
         Solves a Markov Chain.
         :return: the solutions of the Markov Chain.
@@ -72,21 +78,21 @@ class MarkovChain:
         equations, variables = self.generate_sympy_equations()
         solutions = sympy.solve(equations, variables)
 
-        state_solutions = {}
+        state_solutions: Dict[str, Any] = {}
         for symbol, value in solutions.items():
             state_solutions[symbol.name] = value
 
         return state_solutions
 
-    def generate_sympy_equations(self):
+    def generate_sympy_equations(self) -> Tuple[List[Any], Set[Any]]:
         """
         Generate sympy flow equations from the Markov chain.
         :return: the list of equations
         """
-        variables = set()
-        equations = []
+        variables: Set[Any] = set()
+        equations: List[Any] = []
         for eqn in self.generate_equations():
-            equation = 0
+            equation: Any = 0
             lhs = eqn[0]
             rhs = eqn[1]
             for lhs_link in lhs:
@@ -110,12 +116,12 @@ class MarkovChain:
 
         return equations, variables
 
-    def generate_equations(self):
+    def generate_equations(self) -> List[Tuple[List[MarkovLink], List[MarkovLink]]]:
         """
         Generate flow equations from the Markov chain.
         :return: the list of equations.
         """
-        equations = []
+        equations: List[Tuple[List[MarkovLink], List[MarkovLink]]] = []
         for s in sorted(self.states):
             lhs = self.out_links(s)
             rhs = self.in_links(s)
@@ -123,7 +129,7 @@ class MarkovChain:
 
         return equations
 
-    def matrixs(self):
+    def matrixs(self) -> str:
         """
         Return the string representation of the matrix.
         :return: the string representation.
@@ -133,7 +139,9 @@ class MarkovChain:
             s += "{}\n".format(",".join(map(str, r)))
         return s
 
-    def render_graph(self, filename="out/MarkovChain", format="svg"):
+    def render_graph(
+        self, filename: str = "out/MarkovChain", format: str = "svg"
+    ) -> None:
         graph = Digraph(engine="dot")
         graph.attr(rankdir="LR")
 
@@ -146,20 +154,20 @@ class MarkovChain:
 
         graph.render(filename=filename, format=format)
 
-    def __evaluate_factor(self, factor):
+    def __evaluate_factor(self, factor: Any) -> float:
         if isinstance(factor, int) or isinstance(factor, float):
-            return factor
+            return float(factor)
         value = factor
         for k, v in self.symbols.items():
             value = value.replace(k, str(v))
-        return round(eval(value), FLOATING_POINT_PRECISION)
+        return float(round(eval(value), FLOATING_POINT_PRECISION))
 
-    def __str__(self):
+    def __str__(self) -> str:
         return "States: {}\nLinks: {}\nSymbols: {}\n".format(
             sorted(self.states), sorted(self.links), self.symbols
         )
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return self.__str__()
 
 
@@ -200,9 +208,9 @@ if __name__ == "__main__":
     print(markov_chain.matrixs())
 
     eqn_string = ""
-    for eqn in markov_chain.generate_equations():
-        lhs = eqn[0]
-        rhs = eqn[1]
+    for equation in markov_chain.generate_equations():
+        lhs = equation[0]
+        rhs = equation[1]
         for factor in lhs:
             eqn_string += "{}*{}+".format(factor.value, factor.head)
         eqn_string += "="

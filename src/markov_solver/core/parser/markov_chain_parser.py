@@ -5,7 +5,7 @@ from markov_solver.core.model.markov_link import MarkovLink
 from markov_solver.core.model.markov_state import MarkovState
 
 
-def create_chain_from_file(path):
+def create_chain_from_file(path: str) -> MarkovChain:
     with open(path, "r") as definition_file:
         definition = yaml.load(definition_file, Loader=yaml.FullLoader)
 

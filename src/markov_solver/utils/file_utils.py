@@ -1,10 +1,12 @@
 """
 Utilities for file system management.
 """
+
 import os
+from typing import Any, Dict, List, Tuple, Union
 
 
-def exists_file(filename):
+def exists_file(filename: str) -> bool:
     """
     Check whether a file exists or not.
     :param filename: (string) the filename.
@@ -16,7 +18,7 @@ def exists_file(filename):
     return os.path.exists(filepath)
 
 
-def is_empty_file(filename):
+def is_empty_file(filename: str) -> bool:
     """
     Check whether a file is empty or not.
     :param filename: (string) the filename.
@@ -27,7 +29,7 @@ def is_empty_file(filename):
     return len(s) == 0
 
 
-def empty_file(filename):
+def empty_file(filename: str) -> None:
     """
     Delete the file.
     :param filename: (string) the filename.
@@ -38,7 +40,7 @@ def empty_file(filename):
         pass
 
 
-def create_dir_tree(filename):
+def create_dir_tree(filename: str) -> None:
     """
     Create directory trees.
     :param filename:
@@ -49,35 +51,35 @@ def create_dir_tree(filename):
     os.makedirs(dirname, exist_ok=True)
 
 
-def save_list_of_numbers(filename, numbers):
+def save_list_of_numbers(filename: str, numbers: List[Union[int, float]]) -> None:
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "w+") as resfile:
         for value in numbers:
             resfile.write(str(value) + "\n")
 
 
-def append_list_of_numbers(filename, numbers):
+def append_list_of_numbers(filename: str, numbers: List[Union[int, float]]) -> None:
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "a") as resfile:
         for value in numbers:
             resfile.write(str(value) + "\n")
 
 
-def save_list_of_pairs(filename, pairs):
+def save_list_of_pairs(filename: str, pairs: List[Tuple[Any, Any]]) -> None:
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "w+") as resfile:
         for pair in pairs:
             resfile.write("{},{}\n".format(pair[0], pair[1]))
 
 
-def append_list_of_pairs(filename, pairs):
+def append_list_of_pairs(filename: str, pairs: List[Tuple[Any, Any]]) -> None:
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "a") as resfile:
         for pair in pairs:
             resfile.write("{},{}\n".format(pair[0], pair[1]))
 
 
-def save_csv(filename, list_dict):
+def save_csv(filename: str, list_dict: Dict[str, str]) -> None:
     """
     Saves the report onto a CSV file.
     :param filename: (string) the absolute file path.
@@ -88,7 +90,7 @@ def save_csv(filename, list_dict):
     append_csv(filename, list_dict)
 
 
-def save_header_csv(filename, list_dict):
+def save_header_csv(filename: str, list_dict: Dict[str, str]) -> None:
     """
     Save report headers onto a CSV file.
     :param filename: (string) the absolute file path.
@@ -100,7 +102,7 @@ def save_header_csv(filename, list_dict):
         resfile.write("\n")
 
 
-def append_csv(filename, list_dict):
+def append_csv(filename: str, list_dict: Dict[str, str]) -> None:
     """
     Append the report onto a CSV file.
     :param filename: (string) the absolute file path.
@@ -112,7 +114,9 @@ def append_csv(filename, list_dict):
         resfile.write("\n")
 
 
-def save_txt(content, filename, append=False, empty=False):
+def save_txt(
+    content: Any, filename: str, append: bool = False, empty: bool = False
+) -> None:
     """
     Save the content onto a file.
     :param content: (string) the string content to save.
@@ -136,7 +140,7 @@ if __name__ == "__main__":
     filename = "./test.txt"
 
     save_list_of_pairs(filename, [])
-    l = [(1, 2)]
-    append_list_of_pairs(filename, l)
-    l = [(2, 4)]
-    append_list_of_pairs(filename, l)
+    pairs = [(1, 2)]
+    append_list_of_pairs(filename, pairs)
+    pairs = [(2, 4)]
+    append_list_of_pairs(filename, pairs)

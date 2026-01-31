@@ -12,7 +12,7 @@ from markov_solver.utils.logutils import get_logger
 logger = get_logger(__name__)
 
 
-def get_splash(name):
+def get_splash(name: str) -> str:
     """
     Returns the Splash Screen as ASCII Art.
     :return: The Splash Screen.
@@ -22,14 +22,14 @@ def get_splash(name):
 
 
 def print_progress(
-    iteration,
-    total,
-    prefix="PROGRESS",
-    suffix="Complete",
-    message="",
-    decimals=0,
-    bar_length=50,
-):
+    iteration: int,
+    total: int,
+    prefix: str = "PROGRESS",
+    suffix: str = "Complete",
+    message: str = "",
+    decimals: int = 0,
+    bar_length: int = 50,
+) -> None:
     format_string = "{0:." + str(decimals) + "f}"
     percents = format_string.format(100 * (iteration / float(total)))
     filled_length = int(round(bar_length * iteration / float(total)))
