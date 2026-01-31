@@ -5,14 +5,13 @@ All notable changes to CLI Wizard will be documented in this file.
 ## 2.0.0
 *Pending Release*
 
-### Bug Fixes
-- TBD
-
 ### Improvements
-- TBD
+- Added comprehensive type annotations across all source files.
+- Increased test coverage to 90%+ with new test files for all modules.
+- Added public documentation based on Sphinx.
 
 ### Changes
-- TBD
+- Migrated from `setup.py` to modern `pyproject.toml` packaging.
 
 ## 1.0.1
 
