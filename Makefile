@@ -15,6 +15,9 @@ setup:
 install:
 	pip install -e .
 
+test:
+	tox
+
 install-docs:
 	pip install -e ".[docs]"
 
