@@ -12,6 +12,15 @@ All notable changes to CLI Wizard will be documented in this file.
 
 ### Changes
 - Migrated from `setup.py` to modern `pyproject.toml` packaging.
+- Upgraded click to version 8.3.1.
+- Upgraded colored to version 2.3.1.
+- Upgraded graphviz to version 0.21.
+- Upgraded networkx to version 3.6.1.
+- Upgraded numpy to version 2.4.1.
+- Upgraded pyfiglet to version 1.0.4.
+- Upgraded pyyaml to version 6.0.3.
+- Upgraded scipy to version 1.17.0.
+- Upgraded sympy to version 1.14.0.
 
 ## 1.0.1
 

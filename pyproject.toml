@@ -22,15 +22,15 @@ classifiers = [
 ]
 requires-python = ">=3.12"
 dependencies = [
-    "click~=8.1",
-    "colored~=2.2",
-    "graphviz~=0.20",
-    "networkx~=3.2",
-    "numpy~=2.0",
-    "pyfiglet~=1.0",
-    "pyyaml~=6.0",
-    "scipy~=1.13",
-    "sympy~=1.13",
+    "click~=8.3.1",
+    "colored~=2.3.1",
+    "graphviz~=0.21",
+    "networkx~=3.6.1",
+    "numpy~=2.4.1",
+    "pyfiglet~=1.0.4",
+    "pyyaml~=6.0.3",
+    "scipy~=1.17.0",
+    "sympy~=1.14.0",
 ]
 
 [project.optional-dependencies]
