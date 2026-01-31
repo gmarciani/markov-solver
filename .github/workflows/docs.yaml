@@ -2,7 +2,7 @@ name: Documentation
 
 on:
   push:
-    branches: [main]
+    branches: [mainline]
   workflow_dispatch:
 
 permissions:

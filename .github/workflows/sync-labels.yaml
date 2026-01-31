@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - mainline
     paths:
       - .github/labels.yaml
       - .github/workflows/sync-labels.yaml

@@ -5,7 +5,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/markov-solver.svg)](https://pypi.org/project/markov-solver)
 [![Python versions](https://img.shields.io/pypi/pyversions/markov-solver.svg)](https://pypi.org/project/markov-solver)
-[![License](https://img.shields.io/github/license/gmarciani/markov-solver.svg)](https://github.com/gmarciani/markov-solver/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/gmarciani/markov-solver.svg)](https://github.com/gmarciani/markov-solver/blob/mainline/LICENSE)
 [![Build status](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=mainline)](https://github.com/gmarciani/markov-solver/actions)
 [![Tests](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=mainline&label=tests)](https://github.com/gmarciani/markov-solver/actions)
 [![Coverage](https://img.shields.io/codecov/c/github/gmarciani/markov-solver)](https://codecov.io/gh/gmarciani/markov-solver)

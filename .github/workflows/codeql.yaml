@@ -3,9 +3,9 @@ name: CodeQL
 # Temporarily disabled as it takes too long to acquire a worker
 # on:
 #   push:
-#     branches: [ "main" ]
+#     branches: [ "mainline" ]
 #   pull_request:
-#     branches: [ "main" ]
+#     branches: [ "mainline" ]
 
 jobs:
   analyze:
