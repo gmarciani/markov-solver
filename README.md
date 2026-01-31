@@ -1,7 +1,7 @@
 # CLI WIZARD
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/gmarciani/markov-solver/main/resources/brand/banner.png" alt="markov-solver-banner" width="500">
+<img src="https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/banner.png" alt="markov-solver-banner" width="500">
 
 [![PyPI version](https://img.shields.io/pypi/v/cli-wizard.svg)](https://pypi.org/project/markov-solver)
 [![Python versions](https://img.shields.io/pypi/pyversions/cli-wizard.svg)](https://pypi.org/project/markov-solver)
