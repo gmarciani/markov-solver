@@ -26,16 +26,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e .[dev]
 
-    - name: Lint with flake8
-      run: |
-        flake8 src/cli_wizard --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 src/cli_wizard --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+    - name: Run tests
+      run: tox -r -e test
 
-    - name: Format check with black
-      run: black --check src/markov_solver
+    - name: Run linting
+      run: tox -e lint
 
-    - name: Type check with mypy
-      run: mypy src/markov_solver
+    - name: Run type checking
+      run: tox -e type
 
     - name: Test with pytest
       run: pytest tests/ -v --cov=markov_solver --cov-report=xml
