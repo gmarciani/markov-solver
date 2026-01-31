@@ -1,34 +1,58 @@
-#==============================================================================#
-# Project specific
-#==============================================================================#
-.ignore/
-out/
-resources/secrets/
+# Generic
+.ignore
 
-#==============================================================================#
-# PYTHON
-#==============================================================================#
-__pycache__/
-env/
-build/
-dist
-*.egg-info/
-.python-version
-
-#==============================================================================#
 # IntelliJ
-#==============================================================================#
-.idea/
+.idea
 *.iml
-.DS_Store
 
-#==============================================================================#
-# VSCode
-#==============================================================================#
-.vscode
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
 
-#==============================================================================#
-# CodeStyle
-#==============================================================================#
-.tox
-.mypy_cache
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+
+# PyBuilder
+.pybuilder/
+target/
+
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Environments
+.env
+.envrc
+.venv
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Sphinx documentation
+docs/_build/
