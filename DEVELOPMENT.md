@@ -1,76 +1,80 @@
-# Markov Solver -- Development
+# Development
 
-## Requirements
-```
-pyenv virtualenv 3.10.13 markov-solver-dev
-pyenv activate markov-solver-dev
-pip install --upgrade pip
-pip install -r requirements-dev.txt
-```
+## Setup
 
-## Configure PreCommit
-Install pre-commit hook for the local repo:
-```
-pre-commit install
+Setup development environment:
+
+```shell
+make setup
 ```
 
-For the first time, run pre-commit checks on the whole codebase:
-```
-pre-commit run --all-files
+## Validate
+Run tests and linters:
+
+```shell
+# Run all tests and linting with tox
+tox
+
+# Run specific environments
+tox -e test        # Unit tests
+tox -e coverage    # Code coverage report
+tox -e lint        # Linting only
+tox -e type        # Type checking only
+tox -e format      # Format code
 ```
 
-## Build
-```
-python -m build
-```
+## Documentation
 
-## Publish
-To publish a new release on PyPI, you need to create a new release on GitHub, 
-which in turns triggers a GitHub action to publish the release on PyPI.
+Generate the CLI reference documentation using Sphinx:
 
-To this aim, you first need to store the PyPI API Token as a secret on GitHub:
-
-```
-PYPI_API_TOKEN_BODY=$(cat resources/secrets/pypi-token.txt)
-gh secret set "PYPI_API_TOKEN" \
-  --app "actions" \
-  --body "${PYPI_API_TOKEN_BODY}"
+```shell
+make build-docs
 ```
 
-Create a draft release:
+The generated documentation will be in `docs/_build/html/`.
 
+View the documentation:
+
+```shell
+make open-docs
 ```
-VERSION="1.0.0"
+
+Clean the documentation:
+
+```shell
+make clean-docs
+```
+
+## Release
+
+Update version in `VERSION`
+
+Draft the release
+
+```shell
+VERSION="$(cat VERSION)"
 gh release create v${VERSION} \
---title "markov-solver v$VERSION" \
---target mainline \
---notes-file CHANGELOG.md \
---latest \
---draft
+   --title v${VERSION} \
+   --target main \
+   --notes-file CHANGELOG.md \
+   --latest \
+   --draft
 ```
 
-Make changes to the release notes.
+Make changes to the release notes, and publish
 
-Publish the release:
-
-```
+```shell
 gh release edit v${VERSION} --draft=false
 ```
 
-If you need to delete the release from GitHub:
+This will automatically publish to PyPI at https://pypi.org/project/markov-solver.
 
+### Demo
+The product demo is a video that emulates the terminal behavior.
+The video is generated with [Terminalizer](https://www.terminalizer.com/).
+To generate the vide:
 ```
-gh release delete v${VERSION} --cleanup-tag --yes
-```
-
-### Manually publish to PyPI test
-Publish to PyPi test repo at https://test.pypi.org/project/markov-solver
-```
-python -m twine upload --repository testpypi dist/*
-```
-
-### Manually publish to PyPI prod
-Publish to PyPi production repo at https://pypi.org/project/markov-solver
-```
-python -m twine upload dist/*
+nvm use 20
+npm install -g node-gyp terminalizer
+terminalizer render resources/brand/demo.yml --output resources/brand/demo.mp4
 ```

@@ -1,13 +1,36 @@
-![Markov Chain Solver Banner](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/github-banner.svg)
+# CLI WIZARD
 
-# Markov Solver
-*Utility to solve Markov Chains.*
+<div align="center">
+<img src="https://raw.githubusercontent.com/gmarciani/markov-solver/main/resources/brand/banner.png" alt="markov-solver-banner" width="500">
 
-## Requirements
-* Python 3.6+
-* graphviz 12.0.0
+[![PyPI version](https://img.shields.io/pypi/v/cli-wizard.svg)](https://pypi.org/project/markov-solver)
+[![Python versions](https://img.shields.io/pypi/pyversions/cli-wizard.svg)](https://pypi.org/project/markov-solver)
+[![License](https://img.shields.io/github/license/gmarciani/cli-wizard.svg)](https://github.com/gmarciani/markov-solver/blob/main/LICENSE)
+[![Build status](https://img.shields.io/github/actions/workflow/status/gmarciani/cli-wizard/test.yml?branch=main)](https://github.com/gmarciani/markov-solver/actions)
+[![Tests](https://img.shields.io/github/actions/workflow/status/gmarciani/cli-wizard/test.yml?branch=main&label=tests)](https://github.com/gmarciani/markov-solver/actions)
+[![Coverage](https://img.shields.io/codecov/c/github/gmarciani/cli-wizard)](https://codecov.io/gh/gmarciani/markov-solver)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Downloads](https://img.shields.io/pypi/dm/cli-wizard.svg)](https://pypi.org/project/markov-solver)
 
-## Install
+</div>
+
+Solve Markov Chains in a glance.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [References](#references)
+- [Issues](#issues)
+- [License](#license)
+
+## Features
+
+TBD
+
+## Installation
+
 ```shell
 pip install markov-solver
 ```
@@ -121,12 +144,14 @@ We obtain the following result:
 3............................................0.0334572490706320
 ```
 
-## Authors
-Giacomo Marciani, [mgiacomo@amazon.com](mailto:mgiacomo@amazon.com)
-
 ## References
 * ["Discrete-Event Simulation", 2006, L.M. Leemis, S.K. Park](https://www.amazon.com/Discrete-Event-Simulation-Lawrence-M-Leemis/dp/0131429175)
 * ["Performance Modeling and Design of Computer Systems, 2013, M. Harchol-Balter](https://www.amazon.com/Modeling-Simulation-Discrete-Event-Systems-ebook/dp/B00EMB3MXA)
 
+## Issues
+
+Please report any issues or feature requests on the [GitHub Issues](https://github.com/gmarciani/cli-wizard/issues) page.
+
 ## License
-The project is released under the [MIT License](https://opensource.org/licenses/MIT).
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
