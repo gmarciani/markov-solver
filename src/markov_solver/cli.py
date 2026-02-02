@@ -4,7 +4,6 @@ import os
 
 import click
 
-from markov_solver.config.metadata import NAME
 from markov_solver.constants import __version__
 from markov_solver.core.parser.markov_chain_parser import create_chain_from_file
 from markov_solver.utils import guiutils, logutils
@@ -24,7 +23,7 @@ logger = logutils.get_logger(__name__)
 @click.pass_context
 @click.version_option(version=__version__)
 def main(ctx: click.Context, debug: bool) -> None:
-    print(guiutils.get_splash(NAME))
+    print(guiutils.get_splash("markov-solver"))
     if ctx.invoked_subcommand is None:
         print(ctx.get_help())
     else:
