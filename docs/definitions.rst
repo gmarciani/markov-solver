@@ -4,7 +4,7 @@ Definition Formats
 Markov Solver supports multiple input formats for defining Markov chains.
 This page documents each supported format with examples and schema references.
 
-See the `examples directory <https://github.com/gmarciani/markov-chain/tree/mainline/examples>`_ for complete configuration examples.
+See the `examples directory <https://github.com/gmarciani/markov-chain/tree/main/examples>`_ for complete configuration examples.
 
 Supported Formats
 -----------------

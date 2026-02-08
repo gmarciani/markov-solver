@@ -1,13 +1,13 @@
 # MARKOV SOLVER
 
 <div align="center">
-<img src="https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/banner.png" alt="markov-solver-banner" width="500">
+<img src="https://raw.githubusercontent.com/gmarciani/markov-solver/main/resources/brand/banner.png" alt="markov-solver-banner" width="500">
 
 [![PyPI version](https://img.shields.io/pypi/v/markov-solver.svg)](https://pypi.org/project/markov-solver)
 [![Python versions](https://img.shields.io/pypi/pyversions/markov-solver.svg)](https://pypi.org/project/markov-solver)
-[![License](https://img.shields.io/github/license/gmarciani/markov-solver.svg)](https://github.com/gmarciani/markov-solver/blob/mainline/LICENSE)
-[![Build status](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=mainline)](https://github.com/gmarciani/markov-solver/actions)
-[![Tests](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=mainline&label=tests)](https://github.com/gmarciani/markov-solver/actions)
+[![License](https://img.shields.io/github/license/gmarciani/markov-solver.svg)](https://github.com/gmarciani/markov-solver/blob/main/LICENSE)
+[![Build status](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=main)](https://github.com/gmarciani/markov-solver/actions)
+[![Tests](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=main&label=tests)](https://github.com/gmarciani/markov-solver/actions)
 [![Coverage](https://img.shields.io/codecov/c/github/gmarciani/markov-solver)](https://codecov.io/gh/gmarciani/markov-solver)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Downloads](https://img.shields.io/pypi/dm/markov-solver.svg)](https://pypi.org/project/markov-solver)
@@ -47,7 +47,7 @@ You can use `markov-solver` as a CLI or as a library in your project.
 
 To use it as a CLI, check the recorded demo:
 
-![Markov Chain Solver Demo](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/brand/demo.gif)
+![Markov Chain Solver Demo](https://raw.githubusercontent.com/gmarciani/markov-solver/main/resources/brand/demo.gif)
 
 To use it as a library, you can check the [examples](./examples).
 
@@ -57,7 +57,7 @@ See the instructions below to know how to do it.
 ### Chain with constant transition rates
 Let us image that we want to solve the following Markov chain:
 
-![Markov Chain Simple](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/definitions/simple/simple.graph.svg)
+![Markov Chain Simple](https://raw.githubusercontent.com/gmarciani/markov-solver/main/resources/definitions/simple/simple.graph.svg)
 
 We should create a YAML file that defines the chain:
 ```yaml
@@ -98,7 +98,7 @@ Sunny.........................................0.833333333333333
 ### Chain with symbolic transition rates
 Let us image that we want to solve the following Markov chain:
 
-![Markov Chain Symbolic](https://raw.githubusercontent.com/gmarciani/markov-solver/mainline/resources/definitions/symbolic/symbolic.graph.svg)
+![Markov Chain Symbolic](https://raw.githubusercontent.com/gmarciani/markov-solver/main/resources/definitions/symbolic/symbolic.graph.svg)
 
 We should create a YAML file that defines the chain:
 ```yaml
