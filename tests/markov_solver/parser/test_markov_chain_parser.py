@@ -8,14 +8,15 @@ from pathlib import Path
 
 import pytest
 
-from markov_solver.core.parser.base import FormatParser, ParserError
-from markov_solver.core.parser.markov_chain_parser import (
+from markov_solver.parser.markov_chain_parser import (
+    FormatParser,
+    ParserError,
     MarkovChainParser,
     create_chain_from_file,
     create_chain_from_string,
     get_parser,
 )
-from markov_solver.core.model.markov_chain import MarkovChain
+from markov_solver.model.markov_chain import MarkovChain
 
 
 class TestMarkovChainParser:
@@ -86,7 +87,7 @@ chain:
 
     def test_parse_string_custom_parser(self) -> None:
         """Test parse_string with custom parser."""
-        from markov_solver.core.parser.dot_parser import DotParser
+        from markov_solver.parser.dot_parser import DotParser
 
         content = "A -> B [label=0.5]"
         mc = self.parser.parse_string(content, format_parser=DotParser())

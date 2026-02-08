@@ -5,7 +5,7 @@
 
 from abc import ABC, abstractmethod
 
-from markov_solver.core.model.markov_chain import MarkovChain
+from markov_solver.model.markov_chain import MarkovChain
 
 
 class ParserError(Exception):

@@ -5,8 +5,10 @@
 
 import pytest
 
-from markov_solver.core.parser.transition_matrix_parser import TransitionMatrixParser
-from markov_solver.core.parser.base import ParserError
+from markov_solver.parser.transition_matrix_parser import (
+    TransitionMatrixParser,
+    ParserError,
+)
 
 
 class TestTransitionMatrixParser:

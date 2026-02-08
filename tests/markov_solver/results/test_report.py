@@ -1,6 +1,6 @@
 from assertpy import assert_that
 
-from markov_solver.utils.report import SimpleReport
+from markov_solver.results.report import SimpleReport
 
 
 class TestSimpleReport:

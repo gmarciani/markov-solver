@@ -5,9 +5,9 @@ import os
 import click
 
 from markov_solver.constants import __version__
-from markov_solver.core.parser.markov_chain_parser import create_chain_from_file
+from markov_solver.parser.markov_chain_parser import create_chain_from_file
 from markov_solver.utils import guiutils, logutils
-from markov_solver.utils.report import SimpleReport as Report
+from markov_solver.results.report import SimpleReport as Report
 
 logger = logutils.get_logger(__name__)
 

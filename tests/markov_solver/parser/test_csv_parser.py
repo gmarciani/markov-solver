@@ -5,8 +5,7 @@
 
 import pytest
 
-from markov_solver.core.parser.csv_parser import CsvAdjacencyMatrixParser
-from markov_solver.core.parser.base import ParserError
+from markov_solver.parser.csv_parser import CsvAdjacencyMatrixParser, ParserError
 
 
 class TestCsvAdjacencyMatrixParser:

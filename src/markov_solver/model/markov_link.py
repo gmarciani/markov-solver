@@ -1,6 +1,6 @@
 from typing import Union
 
-from markov_solver.core.model.markov_state import MarkovState
+from markov_solver.model.markov_state import MarkovState
 
 
 class MarkovLink:

@@ -5,8 +5,7 @@
 
 import pytest
 
-from markov_solver.core.parser.dot_parser import DotParser
-from markov_solver.core.parser.base import ParserError
+from markov_solver.parser.dot_parser import DotParser, ParserError
 
 
 class TestDotParser:

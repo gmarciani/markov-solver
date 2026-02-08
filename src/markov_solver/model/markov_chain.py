@@ -3,8 +3,8 @@ from typing import Any, Dict, List, Optional, Set, Tuple, Union
 import sympy  # type: ignore
 from graphviz import Digraph  # type: ignore
 
-from markov_solver.core.model.markov_link import MarkovLink
-from markov_solver.core.model.markov_state import MarkovState
+from markov_solver.model.markov_link import MarkovLink
+from markov_solver.model.markov_state import MarkovState
 
 FLOATING_POINT_PRECISION = 12
 

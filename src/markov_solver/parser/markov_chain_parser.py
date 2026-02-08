@@ -5,12 +5,12 @@
 
 from pathlib import Path
 
-from markov_solver.core.model.markov_chain import MarkovChain
-from markov_solver.core.parser.base import FormatParser, ParserError
-from markov_solver.core.parser.chain_format_parser import ChainFormatParser
-from markov_solver.core.parser.csv_parser import CsvAdjacencyMatrixParser
-from markov_solver.core.parser.dot_parser import DotParser
-from markov_solver.core.parser.transition_matrix_parser import TransitionMatrixParser
+from markov_solver.model.markov_chain import MarkovChain
+from markov_solver.parser.base import FormatParser, ParserError
+from markov_solver.parser.chain_format_parser import ChainFormatParser
+from markov_solver.parser.csv_parser import CsvAdjacencyMatrixParser
+from markov_solver.parser.dot_parser import DotParser
+from markov_solver.parser.transition_matrix_parser import TransitionMatrixParser
 
 
 class MarkovChainParser:

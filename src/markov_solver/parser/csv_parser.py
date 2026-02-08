@@ -6,10 +6,10 @@
 import csv
 import io
 
-from markov_solver.core.model.markov_chain import MarkovChain
-from markov_solver.core.model.markov_link import MarkovLink
-from markov_solver.core.model.markov_state import MarkovState
-from markov_solver.core.parser.base import FormatParser, ParserError
+from markov_solver.model.markov_chain import MarkovChain
+from markov_solver.model.markov_link import MarkovLink
+from markov_solver.model.markov_state import MarkovState
+from markov_solver.parser.base import FormatParser, ParserError
 
 
 class CsvAdjacencyMatrixParser(FormatParser):

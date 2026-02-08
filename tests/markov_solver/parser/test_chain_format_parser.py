@@ -5,8 +5,7 @@
 
 import pytest
 
-from markov_solver.core.parser.chain_format_parser import ChainFormatParser
-from markov_solver.core.parser.base import ParserError
+from markov_solver.parser.chain_format_parser import ChainFormatParser, ParserError
 
 
 class TestChainFormatParser:
