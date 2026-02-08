@@ -1,7 +1,5 @@
 # Changelog
 
-All notable changes to CLI Wizard will be documented in this file.
-
 ## 2.0.0
 
 ### New Features
