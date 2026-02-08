@@ -5,8 +5,15 @@ All notable changes to CLI Wizard will be documented in this file.
 ## 2.0.0
 *Pending Release*
 
+### New Features
+- Added support for multiple input formats to define Markov chains:
+  - DOT/Graphviz format (.dot, .gv)
+  - CSV adjacency matrix format (.csv)
+  - Transition matrix YAML/JSON format
+
 ### Improvements
 - Added comprehensive type annotations across all source files.
+- Added Pydantic-based validation for input files.
 - Increased test coverage to 90%+ with new test files for all modules.
 - Added public documentation based on Sphinx.
 

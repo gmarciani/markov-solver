@@ -27,6 +27,7 @@ dependencies = [
     "graphviz~=0.21",
     "networkx~=3.6.1",
     "numpy~=2.4.1",
+    "pydantic~=2.12.5",
     "pyfiglet~=1.0.4",
     "pyyaml~=6.0.3",
     "scipy~=1.17.0",
