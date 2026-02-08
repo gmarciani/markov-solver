@@ -9,6 +9,7 @@ The official command-line interface for Markov Solver.
 
    installation
    commands
+   definitions
 
 Indices and tables
 ==================
