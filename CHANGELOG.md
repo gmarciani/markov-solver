@@ -3,7 +3,6 @@
 All notable changes to CLI Wizard will be documented in this file.
 
 ## 2.0.0
-*Pending Release*
 
 ### New Features
 - Added support for multiple input formats to define Markov chains:
