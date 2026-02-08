@@ -1,0 +1,16 @@
+{
+  "states": [
+    "Sunny",
+    "Rainy"
+  ],
+  "transitions": {
+    "Rainy": {
+      "Rainy": 0.5,
+      "Sunny": 0.5
+    },
+    "Sunny": {
+      "Rainy": 0.1,
+      "Sunny": 0.9
+    }
+  }
+}

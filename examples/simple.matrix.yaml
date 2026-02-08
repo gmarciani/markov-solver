@@ -1,0 +1,11 @@
+states:
+  - Sunny
+  - Rainy
+
+transitions:
+  Sunny:
+    Sunny: 0.9
+    Rainy: 0.1
+  Rainy:
+    Rainy: 0.5
+    Sunny: 0.5

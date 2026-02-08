@@ -1,0 +1,6 @@
+digraph {
+    Sunny -> Sunny [label=0.9]
+    Sunny -> Rainy [label=0.1]
+    Rainy -> Rainy [label=0.5]
+    Rainy -> Sunny [label=0.5]
+}
