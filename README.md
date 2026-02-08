@@ -156,7 +156,7 @@ We obtain the following result:
 
 ## Issues
 
-Please report any issues or feature requests on the [GitHub Issues](https://github.com/gmarciani/cli-wizard/issues) page.
+Please report any issues or feature requests on the [GitHub Issues](https://github.com/gmarciani/markov-solver/issues) page.
 
 ## License
 

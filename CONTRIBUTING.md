@@ -51,7 +51,7 @@ This project has adopted the code of conduct described [here](CODE_OF_CONDUCT.md
 
 
 ## Security issue notifications
-If you discover a potential security issue in this project we ask that you notify us via our [vulnerability reporting page](https://github.com/gmarciani/cli-wizard/security/advisories/new).
+If you discover a potential security issue in this project we ask that you notify us via our [vulnerability reporting page](https://github.com/gmarciani/markov-solver/security/advisories/new).
 Please do **not** create a public github issue.
 
 
