@@ -26,7 +26,7 @@ class DotParser(FormatParser):
     # Pattern to match edges: node1 -> node2 [label=value] or [label="value"]
     EDGE_PATTERN = re.compile(
         r'^\s*"?([^"\s\->]+)"?\s*->\s*"?([^"\s\[]+)"?\s*'
-        r'(?:\[\s*label\s*=\s*"?([^"\]]+)"?\s*\])?',
+        r'(?:\[\s*label\s*=\s*"?([^"\]]+)"?\s*])?',
         re.MULTILINE,
     )
 
