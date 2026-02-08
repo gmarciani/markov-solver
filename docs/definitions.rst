@@ -38,9 +38,9 @@ This is the default format for ``.yaml``, ``.yml``, and ``.json`` files.
 Schema
 ~~~~~~
 
-.. autopydantic_model:: markov_solver.core.parser.schema.MarkovChainDefinition
+.. autopydantic_model:: markov_solver.parser.schema.MarkovChainDefinition
 
-.. autopydantic_model:: markov_solver.core.parser.schema.MarkovLinkSchema
+.. autopydantic_model:: markov_solver.parser.schema.MarkovLinkSchema
 
 Example (YAML)
 ~~~~~~~~~~~~~~
@@ -86,7 +86,7 @@ dictionaries for transition probabilities.
 Schema
 ~~~~~~
 
-.. autopydantic_model:: markov_solver.core.parser.schema.TransitionMatrixDefinition
+.. autopydantic_model:: markov_solver.parser.schema.TransitionMatrixDefinition
 
 Example (YAML)
 ~~~~~~~~~~~~~~
@@ -127,7 +127,7 @@ Edge labels represent transition probabilities.
 Parser
 ~~~~~~
 
-.. autoclass:: markov_solver.core.parser.dot_parser.DotParser
+.. autoclass:: markov_solver.parser.dot_parser.DotParser
    :members:
    :undoc-members:
    :show-inheritance:
@@ -161,7 +161,7 @@ adjacency matrix.
 Parser
 ~~~~~~
 
-.. autoclass:: markov_solver.core.parser.csv_parser.CsvAdjacencyMatrixParser
+.. autoclass:: markov_solver.parser.csv_parser.CsvAdjacencyMatrixParser
    :members:
    :undoc-members:
    :show-inheritance:
@@ -193,12 +193,12 @@ subclassing the ``FormatParser`` base class.
 Base Class
 ~~~~~~~~~~
 
-.. autoclass:: markov_solver.core.parser.base.FormatParser
+.. autoclass:: markov_solver.parser.base.FormatParser
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. autoexception:: markov_solver.core.parser.base.ParserError
+.. autoexception:: markov_solver.parser.base.ParserError
    :show-inheritance:
 
 Registering Custom Parsers
@@ -206,8 +206,8 @@ Registering Custom Parsers
 
 .. code-block:: python
 
-    from markov_solver.core.parser import get_parser, FormatParser
-    from markov_solver.core.model.markov_chain import MarkovChain
+    from markov_solver.parser import get_parser, FormatParser
+    from markov_solver.model.markov_chain import MarkovChain
 
     class MyCustomParser(FormatParser):
         def parse(self, content: str) -> MarkovChain:
