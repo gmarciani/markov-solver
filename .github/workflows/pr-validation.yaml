@@ -35,8 +35,8 @@ jobs:
       run: |
         pip install -e ".[dev]"
         coverage_result=$(pytest tests/ --cov=markov_solver --cov-report=term-missing | grep TOTAL | awk '{print $4}' | sed 's/%//')
-        if [ "$coverage_result" -lt 80 ]; then
-          echo "Coverage $coverage_result% is below 80% threshold"
+        if [ "$coverage_result" -lt 90 ]; then
+          echo "Coverage $coverage_result% is below 90% threshold"
           exit 1
         fi
-        echo "Coverage $coverage_result% meets 80% threshold"
+        echo "Coverage $coverage_result% meets 90% threshold"
