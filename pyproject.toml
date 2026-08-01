@@ -47,7 +47,7 @@ dev = [
     "pytest-resource-path~=1.5.0",
     "assertpy~=1.1",
     "tox~=4.56.4",
-    "twine~=6.2.0",
+    "twine>=6.2,<7.1",
     "types-PyYAML~=6.0.12",
     "types-requests~=2.33.0",
 ]
