@@ -36,7 +36,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "autoflake~=2.3.3",
+    "autoflake>=2.3.3,<2.5.0",
     "black~=26.5.1",
     "build~=1.5.1",
     "flake8~=7.3.0",
