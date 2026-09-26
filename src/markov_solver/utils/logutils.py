@@ -48,9 +48,24 @@ def get_logger(name: str) -> logging.Logger:
     :param name: the logger name.
     :return: the logger.
     """
-    logging.basicConfig(level=LEVEL, handlers=[ConsoleHandler(LEVEL, FORMATTER)])
+    # The handler accepts every record (NOTSET) so that the effective level is
+    # decided by the loggers alone; otherwise set_log_level could never lower
+    # the verbosity below the handler threshold.
+    logging.basicConfig(
+        level=LEVEL, handlers=[ConsoleHandler(logging.NOTSET, FORMATTER)]
+    )
     return logging.getLogger(name)
 
 
 def set_log_level(logger: logging.Logger, level: str) -> None:
+    """
+    Set the level of the logger and of any handler attached to it or to the
+    root logger that would otherwise filter out records at the new level.
+    :param logger: the logger.
+    :param level: the level name, e.g. "DEBUG".
+    """
     logger.setLevel(level)
+    numeric_level = logging.getLevelName(level)
+    for handler in logger.handlers + logging.getLogger().handlers:
+        if handler.level > numeric_level:
+            handler.setLevel(numeric_level)

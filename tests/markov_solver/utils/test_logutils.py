@@ -15,6 +15,26 @@ class TestLogUtils:
         set_log_level(logger, "DEBUG")
         assert_that(logger.level).is_equal_to(logging.DEBUG)
 
+    def test_set_log_level_debug_emits_debug_records(self, capsys) -> None:  # type: ignore[no-untyped-def]
+        logger = get_logger("test_debug_logger")
+        handler = ConsoleHandler(logging.INFO)
+        logger.addHandler(handler)
+        logger.propagate = False
+        set_log_level(logger, "DEBUG")
+        logger.debug("Debug record")
+        captured = capsys.readouterr()
+        assert_that(handler.level).is_equal_to(logging.DEBUG)
+        assert_that(captured.out).contains("Debug record")
+
+    def test_set_log_level_info_drops_debug_records(self, capsys) -> None:  # type: ignore[no-untyped-def]
+        logger = get_logger("test_info_logger")
+        logger.addHandler(ConsoleHandler(logging.NOTSET))
+        logger.propagate = False
+        set_log_level(logger, "INFO")
+        logger.debug("Debug record")
+        captured = capsys.readouterr()
+        assert_that(captured.out).does_not_contain("Debug record")
+
     def test_console_handler_init(self) -> None:
         handler = ConsoleHandler(logging.INFO)
         assert_that(handler.level).is_equal_to(logging.INFO)

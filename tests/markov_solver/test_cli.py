@@ -70,6 +70,36 @@ def test_solve_command_with_args(
 
 
 @pytest.mark.parametrize(
+    "debug_flag, debug_message_expected", [("--debug", True), ("--no-debug", False)]
+)
+def test_debug_flag_controls_debug_logging(
+    runner, resource_path_root, tmp_path, caplog, debug_flag, debug_message_expected
+):
+    definition_file_path = resource_path_root.joinpath(
+        "definitions/simple/simple.definition.yaml"
+    )
+
+    result = runner.invoke(
+        main,
+        [
+            debug_flag,
+            "solve",
+            "--definition",
+            str(definition_file_path),
+            "--outdir",
+            str(tmp_path),
+        ],
+    )
+
+    assert_that(result.exit_code).is_equal_to(0)
+    debug_messages = [r.message for r in caplog.records if r.levelname == "DEBUG"]
+    if debug_message_expected:
+        assert_that(debug_messages).contains("Debug Mode: on")
+    else:
+        assert_that(debug_messages).is_empty()
+
+
+@pytest.mark.parametrize(
     "filename, content, expected_error",
     [
         ("chain.md", "# not a definition", "Unsupported file extension: .md"),
