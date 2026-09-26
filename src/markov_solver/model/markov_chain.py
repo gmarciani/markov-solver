@@ -10,6 +10,10 @@ from markov_solver.model.markov_state import MarkovState
 FLOATING_POINT_PRECISION = 12
 
 
+class SolverError(ValueError):
+    """Raised when a Markov chain has no steady-state solution."""
+
+
 class MarkovChain:
     def __init__(self) -> None:
         self.states: Set[MarkovState] = set()
@@ -75,12 +79,22 @@ class MarkovChain:
         """
         Solves a Markov Chain.
         :return: the solutions of the Markov Chain.
+        :raises SolverError: if the balance equations have no solution, e.g. the
+            chain has no transitions, a rate is negative, or a transition targets
+            a state that has no outgoing flow.
         """
         equations, variables = self.generate_sympy_equations()
-        solutions = sympy.solve(equations, variables)
+        solutions = sympy.solve(equations, variables, dict=True)
+
+        if not solutions:
+            raise SolverError(
+                "The Markov chain has no steady-state solution: check that every "
+                "state has at least one transition and that all rates are "
+                "non-negative"
+            )
 
         state_solutions: Dict[str, Any] = {}
-        for symbol, value in solutions.items():
+        for symbol, value in solutions[0].items():
             state_solutions[symbol.name] = value
 
         return state_solutions

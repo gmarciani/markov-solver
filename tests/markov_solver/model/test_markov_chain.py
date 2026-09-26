@@ -2,7 +2,7 @@ import pytest
 from assertpy import assert_that
 
 from markov_solver.model.expression import ExpressionError
-from markov_solver.model.markov_chain import MarkovChain
+from markov_solver.model.markov_chain import MarkovChain, SolverError
 from markov_solver.model.markov_link import MarkovLink
 from markov_solver.model.markov_state import MarkovState
 
@@ -230,6 +230,29 @@ class TestMarkovChain:
         chain.add_link(MarkovLink(b, a, "1"))
         assert_that(chain.solve).raises(ExpressionError).when_called_with().contains(
             "undefined symbol 'mu'"
+        )
+
+    @pytest.mark.parametrize(
+        "links",
+        [
+            # no transitions at all
+            [],
+            # a negative rate
+            [("A", "B", "-1"), ("B", "A", "1")],
+            # a transition into a state that has no outgoing flow
+            [("A", "B", "1"), ("B", "C", "1")],
+        ],
+    )
+    def test_solve_without_solution_raises_solver_error(
+        self, links: list[tuple[str, str, str]]
+    ) -> None:
+        chain = MarkovChain()
+        for tail, head, value in links:
+            chain.add_link(
+                MarkovLink(chain.add_state(tail), chain.add_state(head), value)
+            )
+        assert_that(chain.solve).raises(SolverError).when_called_with().contains(
+            "no steady-state solution"
         )
 
     def test_solve_with_symbols(self) -> None:

@@ -6,6 +6,7 @@ import click
 
 from markov_solver.constants import __version__
 from markov_solver.model.expression import ExpressionError
+from markov_solver.model.markov_chain import SolverError
 from markov_solver.parser.base import ParserError
 from markov_solver.parser.markov_chain_parser import create_chain_from_file
 from markov_solver.utils import guiutils, logutils
@@ -53,7 +54,7 @@ def solve(ctx: click.Context, definition: str, outdir: str) -> None:
     try:
         markov_chain = create_chain_from_file(definition)
         states_probabilities = markov_chain.solve()
-    except (ParserError, ExpressionError) as e:
+    except (ParserError, ExpressionError, SolverError) as e:
         raise click.ClickException(f"Invalid definition '{definition}': {e}") from e
 
     report = Report("MARKOV CHAIN SOLUTION")

@@ -115,6 +115,7 @@ def test_debug_flag_controls_debug_logging(
             "chain: [{from: A, to: B, value: mu}, {from: B, to: A, value: '1'}]",
             "undefined symbol 'mu'",
         ),
+        ("chain.csv", ",A,B\nA,0,0\nB,0,0\n", "no steady-state solution"),
     ],
 )
 def test_solve_command_invalid_definition_reports_error_without_traceback(
