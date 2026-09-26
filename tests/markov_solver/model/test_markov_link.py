@@ -62,12 +62,21 @@ class TestMarkovLink:
         link2 = MarkovLink(tail, head, 0.5)
         assert_that(link1 != link2).is_false()
 
-    def test_ne_different(self) -> None:
+    def test_ne_different_head(self) -> None:
+        tail = MarkovState("A")
+        link1 = MarkovLink(tail, MarkovState("B"), 0.5)
+        link2 = MarkovLink(tail, MarkovState("C"), 0.5)
+        assert_that(link1 != link2).is_true()
+
+    def test_same_endpoints_are_equal_regardless_of_value(self) -> None:
         tail = MarkovState("A")
         head = MarkovState("B")
         link1 = MarkovLink(tail, head, 0.5)
-        link2 = MarkovLink(tail, head, 0.7)
-        assert_that(link1 != link2).is_true()
+        link2 = MarkovLink(tail, head, "0.7")
+        assert_that(link1).is_equal_to(link2)
+        assert_that(link1 != link2).is_false()
+        assert_that(hash(link1)).is_equal_to(hash(link2))
+        assert_that({link1, link2}).is_length(1)
 
     def test_ne_non_markov_link(self) -> None:
         link = MarkovLink(MarkovState("A"), MarkovState("B"), 0.5)

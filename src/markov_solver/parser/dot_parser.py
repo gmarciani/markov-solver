@@ -8,7 +8,11 @@ import re
 from markov_solver.model.markov_chain import MarkovChain
 from markov_solver.model.markov_link import MarkovLink
 from markov_solver.model.markov_state import MarkovState
-from markov_solver.parser.base import FormatParser, ParserError
+from markov_solver.parser.base import (
+    FormatParser,
+    ParserError,
+    duplicate_transition_error,
+)
 
 
 class DotParser(FormatParser):
@@ -48,7 +52,8 @@ class DotParser(FormatParser):
             tail = MarkovState(to_state)
             mc.add_state(head)
             mc.add_state(tail)
-            mc.add_link(MarkovLink(head, tail, value))
+            if not mc.add_link(MarkovLink(head, tail, value)):
+                raise duplicate_transition_error(head, tail)
 
         return mc
 

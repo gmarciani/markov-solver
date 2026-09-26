@@ -36,6 +36,16 @@ class TestMarkovChain:
         assert_that(result).is_true()
         assert_that(chain.links).contains(link)
 
+    def test_add_link_same_endpoints_different_value_is_rejected(self) -> None:
+        chain = MarkovChain()
+        s1 = chain.add_state("A")
+        s2 = chain.add_state("B")
+        chain.add_link(MarkovLink(s1, s2, "0.3"))
+        result = chain.add_link(MarkovLink(s1, s2, "0.5"))
+        assert_that(result).is_false()
+        assert_that(chain.links).is_length(1)
+        assert_that(chain.find_link(s1, s2).value).is_equal_to("0.3")
+
     def test_add_link_duplicate(self) -> None:
         chain = MarkovChain()
         s1 = chain.add_state("A")

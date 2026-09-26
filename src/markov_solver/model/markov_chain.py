@@ -26,6 +26,12 @@ class MarkovChain:
         return state
 
     def add_link(self, link: MarkovLink) -> bool:
+        """
+        Add a transition to the chain.
+        :param link: the transition.
+        :return: True if added; False if a transition with the same tail and
+            head already exists (the existing one is kept unchanged).
+        """
         if link not in self.links:
             self.links.add(link)
             return True

@@ -129,6 +129,16 @@ class TestDotParser:
         assert len(mc.states) == 4
         assert len(mc.links) == 2
 
+    def test_parse_duplicate_edge_raises_parser_error(self) -> None:
+        """Test that the same edge declared twice is rejected."""
+        content = """digraph {
+    A -> B [label=0.3]
+    A -> B [label=0.5]
+    B -> A [label=1]
+}"""
+        with pytest.raises(ParserError, match="Duplicate transition from 'A' to 'B'"):
+            self.parser.parse(content)
+
     def test_supports_extension_dot(self) -> None:
         """Test supports_extension for .dot."""
         assert self.parser.supports_extension(".dot") is True

@@ -9,7 +9,11 @@ from pydantic import ValidationError
 from markov_solver.model.markov_chain import MarkovChain
 from markov_solver.model.markov_link import MarkovLink
 from markov_solver.model.markov_state import MarkovState
-from markov_solver.parser.base import FormatParser, ParserError
+from markov_solver.parser.base import (
+    FormatParser,
+    ParserError,
+    duplicate_transition_error,
+)
 from markov_solver.parser.schema import MarkovChainDefinition
 
 
@@ -57,7 +61,8 @@ class ChainFormatParser(FormatParser):
             markov_link = MarkovLink(head, tail, link.value)
             mc.add_state(head)
             mc.add_state(tail)
-            mc.add_link(markov_link)
+            if not mc.add_link(markov_link):
+                raise duplicate_transition_error(head, tail)
 
         return mc
 

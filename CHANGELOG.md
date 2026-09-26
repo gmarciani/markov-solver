@@ -3,6 +3,7 @@
 ## 2.1.0
 
 ### Bug Fixes
+- A transition declared twice between the same pair of states is now rejected with `ParserError: Duplicate transition from 'A' to 'B'` in every input format. Previously two links with different values were both kept and their rates silently summed, while identical duplicates were silently dropped. `MarkovLink` equality and hashing are now based on the (tail, head) pair only.
 - A non-numeric symbol value (e.g. `symbols: {rate: fast}`) is now rejected with a `ParserError` naming the offending symbol, instead of leaking a raw `ValueError`.
 - `MarkovChain.solve()` now raises a `SolverError` with a clear message when the balance equations have no solution (no transitions, negative rates, transitions into a sink state), instead of crashing with `AttributeError: 'list' object has no attribute 'items'`. The CLI reports it as a definition error.
 - Transition values are no longer passed to Python's `eval`, which let a definition file execute arbitrary code. They are now parsed by a dedicated arithmetic parser (numbers, symbols, `+ - * / **`, parentheses) into sympy expressions; anything else is rejected with an `ExpressionError`.

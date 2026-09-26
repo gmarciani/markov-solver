@@ -125,6 +125,13 @@ B,mu,0"""
         assert "lambda" in values
         assert "mu" in values
 
+    def test_parse_duplicate_header_state_raises_parser_error(self) -> None:
+        """Test that a state repeated in the header yields a duplicate transition."""
+        content = """,A,A
+A,0.5,0.5"""
+        with pytest.raises(ParserError, match="Duplicate transition from 'A' to 'A'"):
+            self.parser.parse(content)
+
     def test_supports_extension_csv(self) -> None:
         """Test supports_extension for .csv."""
         assert self.parser.supports_extension(".csv") is True

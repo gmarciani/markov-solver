@@ -4,6 +4,12 @@ from markov_solver.model.markov_state import MarkovState
 
 
 class MarkovLink:
+    """
+    A directed transition ``tail -> head`` carrying a value (rate or probability).
+    Two links are the same transition when they share tail and head, whatever
+    their values: a chain can hold at most one link per (tail, head) pair.
+    """
+
     def __init__(
         self, tail: MarkovState, head: MarkovState, value: Union[str, float]
     ) -> None:
@@ -18,25 +24,17 @@ class MarkovLink:
         return self.__str__()
 
     def __hash__(self) -> int:
-        return hash(str(self))
+        return hash((str(self.tail), str(self.head)))
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, MarkovLink):
             return False
-        return (
-            self.tail == other.tail
-            and self.head == other.head
-            and self.value == other.value
-        )
+        return self.tail == other.tail and self.head == other.head
 
     def __ne__(self, other: object) -> bool:
         if not isinstance(other, MarkovLink):
             return False
-        return (
-            self.tail != other.tail
-            or self.head != other.head
-            or self.value != other.value
-        )
+        return self.tail != other.tail or self.head != other.head
 
     def __ge__(self, other: object) -> bool:
         if not isinstance(other, MarkovLink):

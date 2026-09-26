@@ -12,6 +12,11 @@ class ParserError(Exception):
     """Raised when parsing fails."""
 
 
+def duplicate_transition_error(tail: object, head: object) -> ParserError:
+    """Build the error raised when a transition is declared more than once."""
+    return ParserError(f"Duplicate transition from '{tail}' to '{head}'")
+
+
 class FormatParser(ABC):
     """Abstract base class for format-specific parsers."""
 

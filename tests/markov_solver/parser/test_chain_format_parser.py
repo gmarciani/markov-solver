@@ -173,6 +173,23 @@ chain:
         with pytest.raises(ParserError, match="symbols.rate"):
             self.parser.parse(content)
 
+    def test_parse_duplicate_transition_raises_parser_error(self) -> None:
+        """Test that the same from/to pair listed twice is rejected."""
+        content = """
+chain:
+  - from: "A"
+    to: "B"
+    value: "0.3"
+  - from: "A"
+    to: "B"
+    value: "0.5"
+  - from: "B"
+    to: "A"
+    value: "1"
+"""
+        with pytest.raises(ParserError, match="Duplicate transition from 'A' to 'B'"):
+            self.parser.parse(content)
+
     def test_parse_symbols_with_string_values(self) -> None:
         """Test parsing symbols with string numeric values."""
         content = """
