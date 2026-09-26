@@ -173,13 +173,30 @@ transitions:
         assert "0.75" in values
         assert "0.25" in values
 
-    def test_supports_extension_always_false(self) -> None:
-        """Test supports_extension always returns False (explicit use only)."""
-        assert self.parser.supports_extension(".yaml") is False
-        assert self.parser.supports_extension(".yml") is False
-        assert self.parser.supports_extension(".json") is False
-        assert self.parser.supports_extension(".csv") is False
-        assert self.parser.supports_extension(".dot") is False
+    @pytest.mark.parametrize("extension", [".yaml", ".yml", ".json", ".YAML"])
+    def test_supports_extension_yaml_json(self, extension: str) -> None:
+        """Test supports_extension for YAML/JSON extensions."""
+        assert self.parser.supports_extension(extension) is True
+
+    @pytest.mark.parametrize("extension", [".csv", ".dot", ".gv", ".txt"])
+    def test_supports_extension_unsupported(self, extension: str) -> None:
+        """Test supports_extension for unsupported extensions."""
+        assert self.parser.supports_extension(extension) is False
+
+    @pytest.mark.parametrize(
+        "content, expected",
+        [
+            ("states: [A]\ntransitions:\n  A: {A: 1.0}\n", True),
+            ('{"states": ["A"], "transitions": {"A": {"A": 1.0}}}', True),
+            ("states: [A]\n", False),
+            ("chain:\n  - {from: A, to: A, value: '1.0'}\n", False),
+            ("- just\n- a list\n", False),
+            ("states: [\n", False),
+        ],
+    )
+    def test_supports_content(self, content: str, expected: bool) -> None:
+        """Test supports_content recognises only documents with states and transitions."""
+        assert self.parser.supports_content(content) is expected
 
     def test_parse_symbols_with_int_values(self) -> None:
         """Test parsing symbols with integer values."""

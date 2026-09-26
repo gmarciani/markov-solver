@@ -28,7 +28,7 @@ class TestMarkovChainParser:
 
     def test_init_registers_default_parsers(self) -> None:
         """Test that default parsers are registered on init."""
-        assert len(self.parser._format_parsers) == 3
+        assert len(self.parser._format_parsers) == 4
 
     def test_register_parser(self) -> None:
         """Test registering a custom parser."""
@@ -59,6 +59,41 @@ chain:
 
         assert len(mc.states) == 2
         Path(f.name).unlink()
+
+    @pytest.mark.parametrize(
+        "suffix, content",
+        [
+            (
+                ".yaml",
+                "states: [S0, S1]\ntransitions:\n  S0: {S1: 1.0}\n  S1: {S0: 1.0}\n",
+            ),
+            (
+                ".json",
+                '{"states": ["S0", "S1"], "transitions": {"S0": {"S1": 1.0}, "S1": {"S0": 1.0}}}',
+            ),
+        ],
+    )
+    def test_parse_file_detects_transition_matrix_format(
+        self, tmp_path: Path, suffix: str, content: str
+    ) -> None:
+        """Test that matrix-format files are detected by content, not extension."""
+        definition = tmp_path / f"matrix{suffix}"
+        definition.write_text(content)
+
+        mc = self.parser.parse_file(definition)
+
+        assert {str(s) for s in mc.states} == {"S0", "S1"}
+        assert len(mc.links) == 2
+
+    def test_parse_file_unrecognised_yaml_reports_chain_schema_error(
+        self, tmp_path: Path
+    ) -> None:
+        """Test that YAML matching no known format fails with the chain schema error."""
+        definition = tmp_path / "unknown.yaml"
+        definition.write_text("foo: bar\n")
+
+        with pytest.raises(ParserError, match="Invalid chain definition"):
+            self.parser.parse_file(definition)
 
     def test_parse_file_not_found(self) -> None:
         """Test parsing non-existent file raises ParserError."""

@@ -126,6 +126,20 @@ chain:
         assert self.parser.supports_extension(".json") is True
         assert self.parser.supports_extension(".JSON") is True
 
+    @pytest.mark.parametrize(
+        "content, expected",
+        [
+            ("chain:\n  - {from: A, to: A, value: '1.0'}\n", True),
+            ('{"chain": []}', True),
+            ("states: [A]\ntransitions:\n  A: {A: 1.0}\n", False),
+            ("- just\n- a list\n", False),
+            ("chain: [\n", False),
+        ],
+    )
+    def test_supports_content(self, content: str, expected: bool) -> None:
+        """Test supports_content recognises only documents with a chain key."""
+        assert self.parser.supports_content(content) is expected
+
     def test_supports_extension_unsupported(self) -> None:
         """Test supports_extension for unsupported extensions."""
         assert self.parser.supports_extension(".txt") is False

@@ -33,7 +33,8 @@ Chain Format (YAML/JSON)
 ------------------------
 
 The chain format defines a Markov chain as a list of transitions.
-This is the default format for ``.yaml``, ``.yml``, and ``.json`` files.
+It is recognised in ``.yaml``, ``.yml``, and ``.json`` files by its
+top-level ``chain`` key.
 
 Schema
 ~~~~~~
@@ -81,7 +82,9 @@ Transition Matrix Format
 ------------------------
 
 The transition matrix format defines states explicitly and uses nested
-dictionaries for transition probabilities.
+dictionaries for transition probabilities. It shares the ``.yaml``, ``.yml``,
+and ``.json`` extensions with the chain format and is recognised by its
+top-level ``states`` and ``transitions`` keys.
 
 Schema
 ~~~~~~

@@ -65,3 +65,10 @@ class ChainFormatParser(FormatParser):
 
     def supports_extension(self, extension: str) -> bool:
         return extension.lower() in {".yaml", ".yml", ".json"}
+
+    def supports_content(self, content: str) -> bool:
+        try:
+            raw_data = yaml.safe_load(content)
+        except yaml.YAMLError:
+            return False
+        return isinstance(raw_data, dict) and "chain" in raw_data

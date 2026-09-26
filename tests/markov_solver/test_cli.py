@@ -37,6 +37,11 @@ def test_solve_command_no_args(runner):
             [r"Rainy.+0\.166666666666667", r"Sunny.+0\.833333333333333"],
         ),
         (
+            "definitions/simple/simple.matrix.yaml",
+            0,
+            [r"Rainy.+0\.166666666666667", r"Sunny.+0\.833333333333333"],
+        ),
+        (
             "definitions/symbolic/symbolic.definition.yaml",
             0,
             [

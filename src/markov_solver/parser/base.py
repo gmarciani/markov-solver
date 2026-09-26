@@ -22,3 +22,11 @@ class FormatParser(ABC):
     @abstractmethod
     def supports_extension(self, extension: str) -> bool:
         """Check if this parser supports the given file extension."""
+
+    def supports_content(self, content: str) -> bool:
+        """Check if this parser recognises the given content.
+
+        Used to choose between parsers that share a file extension. The default
+        accepts anything; parsers sharing extensions should override it.
+        """
+        return True

@@ -20,6 +20,7 @@ class MarkovChainParser:
         self._format_parsers: list[FormatParser] = []
         # Register default parsers
         self.register_parser(ChainFormatParser())
+        self.register_parser(TransitionMatrixParser())
         self.register_parser(DotParser())
         self.register_parser(CsvAdjacencyMatrixParser())
 
@@ -27,11 +28,11 @@ class MarkovChainParser:
         """Register a new format parser."""
         self._format_parsers.append(parser)
 
-    def _get_parser_for_extension(self, extension: str) -> FormatParser:
-        """Get the appropriate parser for a file extension."""
-        for parser in self._format_parsers:
-            if parser.supports_extension(extension):
-                return parser
+    def _get_parsers_for_extension(self, extension: str) -> list[FormatParser]:
+        """Get all parsers that support a file extension, in registration order."""
+        parsers = [p for p in self._format_parsers if p.supports_extension(extension)]
+        if parsers:
+            return parsers
 
         supported_exts: set[str] = set()
         for p in self._format_parsers:
@@ -51,8 +52,15 @@ class MarkovChainParser:
         if not file_path.exists():
             raise ParserError(f"File not found: {file_path}")
 
-        format_parser = self._get_parser_for_extension(file_path.suffix)
+        candidates = self._get_parsers_for_extension(file_path.suffix)
         content = file_path.read_text()
+
+        # Several formats may share an extension (e.g. chain and transition
+        # matrix for YAML/JSON): pick the first one that recognises the content,
+        # falling back to the first candidate so that it reports the schema error.
+        format_parser = next(
+            (p for p in candidates if p.supports_content(content)), candidates[0]
+        )
 
         return format_parser.parse(content)
 
@@ -81,6 +89,8 @@ def create_chain_from_file(path: str | Path) -> MarkovChain:
 
     Supports:
     - YAML/JSON chain format (.yaml, .yml, .json)
+    - YAML/JSON transition matrix format (.yaml, .yml, .json), detected by its
+      top-level ``states`` and ``transitions`` keys
     - DOT/Graphviz format (.dot, .gv)
     - CSV adjacency matrix (.csv)
 

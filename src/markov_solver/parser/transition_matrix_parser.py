@@ -69,5 +69,15 @@ class TransitionMatrixParser(FormatParser):
         return mc
 
     def supports_extension(self, extension: str) -> bool:
-        # This parser handles the same extensions but different schema
-        return False  # Not auto-detected, must be explicitly used
+        return extension.lower() in {".yaml", ".yml", ".json"}
+
+    def supports_content(self, content: str) -> bool:
+        try:
+            raw_data = yaml.safe_load(content)
+        except yaml.YAMLError:
+            return False
+        return (
+            isinstance(raw_data, dict)
+            and "states" in raw_data
+            and "transitions" in raw_data
+        )
