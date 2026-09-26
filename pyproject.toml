@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "markov-solver"
 dynamic = ["version"]
-description = "Generate modern CLIs from OpenAPI specifications"
+description = "Compute steady-state probabilities of Markov chains defined in YAML/JSON, DOT or CSV, with symbolic rates"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
@@ -70,9 +70,6 @@ Issues = "https://github.com/gmarciani/markov-solver/issues"
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["markov_solver*"]
-
-[tool.setuptools.package-data]
-markov_solver = ["templates/*.j2", "templates/bootstrap/*.j2", "templates/bootstrap/github/workflows/*.j2", "config/*.yaml"]
 
 [tool.setuptools.dynamic]
 version = {file = "VERSION"}

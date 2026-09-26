@@ -2,6 +2,12 @@
 
 ## 2.1.0
 
+### Fixes
+- Transition matrix definitions (`states`/`transitions`) in `.yaml`, `.yml` and `.json` files are now detected automatically by `create_chain_from_file` and the CLI, as documented; previously they failed with a chain-schema validation error.
+- The `--debug` flag now actually enables debug logging; the console handler previously filtered out every record below INFO regardless of the logger level.
+- The CLI now reports definition parsing errors as a one-line `Error:` message with exit code 1 instead of printing a traceback.
+- Fixed the package description and package data in `pyproject.toml`.
+
 ### Changes
 - Expressed all dependencies with the `~=` version constraint pinned to the minor version, so patch-level updates are applied automatically while minor/major upgrades remain explicit.
 - Upgraded click to version 8.5.0.
