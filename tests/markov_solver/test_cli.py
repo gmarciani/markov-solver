@@ -69,5 +69,30 @@ def test_solve_command_with_args(
         assert_that(result.output).matches(expected_probability)
 
 
+@pytest.mark.parametrize(
+    "filename, content, expected_error",
+    [
+        ("chain.md", "# not a definition", "Unsupported file extension: .md"),
+        ("chain.yaml", "chain: [{from: A}]", "Invalid chain definition"),
+        ("chain.yaml", "chain: [", "Invalid YAML/JSON"),
+    ],
+)
+def test_solve_command_invalid_definition_reports_error_without_traceback(
+    runner, tmp_path, filename, content, expected_error
+):
+    definition_file_path = tmp_path / filename
+    definition_file_path.write_text(content)
+
+    result = runner.invoke(
+        main,
+        ["solve", "--definition", str(definition_file_path), "--outdir", str(tmp_path)],
+    )
+
+    assert_that(result.exit_code).is_equal_to(1)
+    assert_that(result.exception).is_instance_of(SystemExit)
+    assert_that(result.output).contains("Error: Invalid definition", expected_error)
+    assert_that(result.output).does_not_contain("Traceback")
+
+
 if __name__ == "__main__":
     pytest.main()
