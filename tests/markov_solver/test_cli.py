@@ -110,6 +110,11 @@ def test_debug_flag_controls_debug_logging(
         ("chain.md", "# not a definition", "Unsupported file extension: .md"),
         ("chain.yaml", "chain: [{from: A}]", "Invalid chain definition"),
         ("chain.yaml", "chain: [", "Invalid YAML/JSON"),
+        (
+            "chain.yaml",
+            "chain: [{from: A, to: B, value: mu}, {from: B, to: A, value: '1'}]",
+            "undefined symbol 'mu'",
+        ),
     ],
 )
 def test_solve_command_invalid_definition_reports_error_without_traceback(

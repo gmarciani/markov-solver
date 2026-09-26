@@ -1,5 +1,7 @@
+import pytest
 from assertpy import assert_that
 
+from markov_solver.model.expression import ExpressionError
 from markov_solver.model.markov_chain import MarkovChain
 from markov_solver.model.markov_link import MarkovLink
 from markov_solver.model.markov_state import MarkovState
@@ -166,6 +168,53 @@ class TestMarkovChain:
         chain = MarkovChain()
         chain.add_state("A")
         assert_that(repr(chain)).is_equal_to(str(chain))
+
+    @pytest.mark.parametrize(
+        "symbols, value_a_to_b, value_b_to_a, expected_a, expected_b",
+        [
+            # a symbol that is a prefix of another must not be replaced inside it
+            ({"mu": 2.0, "mu2": 3.0}, "mu", "mu2", 0.6, 0.4),
+            # a symbol named like the exponent marker must not corrupt literals
+            ({"e": 2.718}, "1e-1", "0.5", 0.833333333333333, 0.166666666666667),
+            # a symbol must not be replaced inside a longer symbol name
+            ({"a": 0.5, "lambda": 2.0}, "lambda", "a", 0.2, 0.8),
+            # symbols inside arithmetic expressions
+            (
+                {"lambda": 1.0, "mu": 2.0},
+                "lambda",
+                "3*mu",
+                0.857142857142857,
+                0.142857142857143,
+            ),
+        ],
+    )
+    def test_solve_substitutes_symbols_by_name(
+        self,
+        symbols: dict[str, float],
+        value_a_to_b: str,
+        value_b_to_a: str,
+        expected_a: float,
+        expected_b: float,
+    ) -> None:
+        chain = MarkovChain()
+        a = chain.add_state("A")
+        b = chain.add_state("B")
+        chain.add_symbols(**symbols)
+        chain.add_link(MarkovLink(a, b, value_a_to_b))
+        chain.add_link(MarkovLink(b, a, value_b_to_a))
+        solutions = chain.solve()
+        assert_that(float(solutions["A"])).is_close_to(expected_a, 1e-12)
+        assert_that(float(solutions["B"])).is_close_to(expected_b, 1e-12)
+
+    def test_solve_undefined_symbol_raises_expression_error(self) -> None:
+        chain = MarkovChain()
+        a = chain.add_state("A")
+        b = chain.add_state("B")
+        chain.add_link(MarkovLink(a, b, "mu"))
+        chain.add_link(MarkovLink(b, a, "1"))
+        assert_that(chain.solve).raises(ExpressionError).when_called_with().contains(
+            "undefined symbol 'mu'"
+        )
 
     def test_solve_with_symbols(self) -> None:
         chain = MarkovChain()
