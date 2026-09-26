@@ -4,23 +4,27 @@
 
 ### Changes
 - Expressed all dependencies with the `~=` version constraint pinned to the minor version, so patch-level updates are applied automatically while minor/major upgrades remain explicit.
-- Upgraded click to version 8.4.2.
+- Upgraded click to version 8.5.0.
 - Upgraded colored to version 2.3.2.
 - Upgraded graphviz to version 0.21.0.
-- Upgraded numpy to version 2.5.1.
-- Upgraded pydantic to version 2.13.4.
-- Upgraded scipy to version 1.18.0.
-- Upgraded autoflake to version 2.3.3.
+- Upgraded networkx to version 3.7.0.
+- Upgraded numpy to version 2.5.3.
+- Upgraded pydantic to version 2.13.5.
+- Upgraded scipy to version 1.18.1.
+- Upgraded autoflake to version 2.4.0.
 - Upgraded black to version 26.5.1.
-- Upgraded build to version 1.5.1.
-- Upgraded mypy to version 2.2.0.
-- Upgraded pre-commit to version 4.6.0.
+- Upgraded build to version 1.6.1.
+- Upgraded mypy to version 2.3.1.
+- Upgraded pre-commit to version 4.6.2.
 - Upgraded pytest to version 9.1.1.
 - Upgraded pytest-cov to version 7.1.0.
 - Upgraded pytest-resource-path to version 1.5.0.
-- Upgraded tox to version 4.56.4.
+- Upgraded tox to version 4.64.3.
 - Upgraded types-PyYAML to version 6.0.12.
 - Upgraded types-requests to version 2.33.0.
+- Upgraded flake8 to version 7.4.1.
+- Upgraded twine to version 7.0.0.
+- Upgraded sphinx-new-tab-link to version 0.8.2.
 
 ## 2.0.0
 

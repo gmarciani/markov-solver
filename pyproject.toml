@@ -22,32 +22,32 @@ classifiers = [
 ]
 requires-python = ">=3.12"
 dependencies = [
-    "click~=8.4.2",
+    "click~=8.5.0",
     "colored~=2.3.2",
     "graphviz~=0.21.0",
-    "networkx~=3.6.1",
-    "numpy~=2.5.1",
-    "pydantic~=2.13.4",
+    "networkx~=3.7.0",
+    "numpy~=2.5.3",
+    "pydantic~=2.13.5",
     "pyfiglet~=1.0.4",
     "pyyaml~=6.0.3",
-    "scipy~=1.18.0",
+    "scipy~=1.18.1",
     "sympy~=1.14.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "autoflake~=2.3.3",
+    "autoflake~=2.4.0",
     "black~=26.5.1",
-    "build~=1.5.1",
-    "flake8~=7.3.0",
-    "mypy~=2.2.0",
-    "pre-commit~=4.6.0",
+    "build~=1.6.1",
+    "flake8~=7.4.1",
+    "mypy~=2.3.1",
+    "pre-commit~=4.6.2",
     "pytest~=9.1.1",
     "pytest-cov~=7.1.0",
     "pytest-resource-path~=1.5.0",
     "assertpy~=1.1",
-    "tox~=4.56.4",
-    "twine~=6.2.0",
+    "tox~=4.64.3",
+    "twine~=7.0.0",
     "types-PyYAML~=6.0.12",
     "types-requests~=2.33.0",
 ]
@@ -55,7 +55,7 @@ docs = [
     "sphinx~=9.1.0",
     "sphinx-click~=6.2.0",
     "sphinx-rtd-theme~=3.1.0",
-    "sphinx-new-tab-link~=0.8.1",
+    "sphinx-new-tab-link~=0.8.2",
     "autodoc_pydantic~=2.2.0",
 ]
 
