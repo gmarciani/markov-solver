@@ -159,6 +159,20 @@ chain:
         assert len(mc.states) == 1
         assert len(mc.links) == 1
 
+    @pytest.mark.parametrize("value", ["fast", "1.5.2", "[1, 2]", "null"])
+    def test_parse_non_numeric_symbol_raises_parser_error(self, value: str) -> None:
+        """Test that a non-numeric symbol value is a ParserError, not a ValueError."""
+        content = f"""
+symbols:
+  rate: {value}
+chain:
+  - from: "A"
+    to: "B"
+    value: "rate"
+"""
+        with pytest.raises(ParserError, match="symbols.rate"):
+            self.parser.parse(content)
+
     def test_parse_symbols_with_string_values(self) -> None:
         """Test parsing symbols with string numeric values."""
         content = """

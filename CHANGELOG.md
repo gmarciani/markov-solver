@@ -3,6 +3,7 @@
 ## 2.1.0
 
 ### Bug Fixes
+- A non-numeric symbol value (e.g. `symbols: {rate: fast}`) is now rejected with a `ParserError` naming the offending symbol, instead of leaking a raw `ValueError`.
 - `MarkovChain.solve()` now raises a `SolverError` with a clear message when the balance equations have no solution (no transitions, negative rates, transitions into a sink state), instead of crashing with `AttributeError: 'list' object has no attribute 'items'`. The CLI reports it as a definition error.
 - Transition values are no longer passed to Python's `eval`, which let a definition file execute arbitrary code. They are now parsed by a dedicated arithmetic parser (numbers, symbols, `+ - * / **`, parentheses) into sympy expressions; anything else is rejected with an `ExpressionError`.
 - Symbols in transition values are now substituted by whole name. Previously a textual replacement corrupted expressions whenever one symbol was a prefix of another (`mu` inside `mu2`) or of a numeric literal (`e` inside `1e-1`), producing silently wrong probabilities. Referencing an undefined symbol now raises a clear `ExpressionError` instead of a `NameError`.

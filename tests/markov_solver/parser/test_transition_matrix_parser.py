@@ -198,6 +198,21 @@ transitions:
         """Test supports_content recognises only documents with states and transitions."""
         assert self.parser.supports_content(content) is expected
 
+    @pytest.mark.parametrize("value", ["fast", "1.5.2", "[1, 2]", "null"])
+    def test_parse_non_numeric_symbol_raises_parser_error(self, value: str) -> None:
+        """Test that a non-numeric symbol value is a ParserError, not a ValueError."""
+        content = f"""
+states:
+  - A
+symbols:
+  rate: {value}
+transitions:
+  A:
+    A: rate
+"""
+        with pytest.raises(ParserError, match="symbols.rate"):
+            self.parser.parse(content)
+
     def test_parse_symbols_with_int_values(self) -> None:
         """Test parsing symbols with integer values."""
         content = """

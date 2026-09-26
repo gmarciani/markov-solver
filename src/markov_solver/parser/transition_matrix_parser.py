@@ -50,9 +50,7 @@ class TransitionMatrixParser(FormatParser):
         mc = MarkovChain()
 
         if definition.symbols:
-            # Convert all symbol values to float
-            symbols = {k: float(v) for k, v in definition.symbols.items()}
-            mc.add_symbols(**symbols)
+            mc.add_symbols(**definition.symbols)
 
         # Add all states
         for state_name in definition.states:

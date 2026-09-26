@@ -30,8 +30,9 @@ class MarkovChainDefinition(BaseModel):
     chain: list[MarkovLinkSchema] = Field(
         ..., description="List of links defining the Markov chain"
     )
-    symbols: dict[str, str | int | float] = Field(
-        default_factory=dict, description="Optional symbolic variables"
+    symbols: dict[str, float] = Field(
+        default_factory=dict,
+        description="Optional symbolic variables; values must be numeric",
     )
 
 
@@ -55,6 +56,7 @@ class TransitionMatrixDefinition(BaseModel):
         ..., description="Transition matrix as nested dict"
     )
     initial: str | None = Field(default=None, description="Optional initial state")
-    symbols: dict[str, str | int | float] = Field(
-        default_factory=dict, description="Optional symbolic variables"
+    symbols: dict[str, float] = Field(
+        default_factory=dict,
+        description="Optional symbolic variables; values must be numeric",
     )

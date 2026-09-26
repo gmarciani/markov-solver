@@ -49,9 +49,7 @@ class ChainFormatParser(FormatParser):
         mc = MarkovChain()
 
         if definition.symbols:
-            # Convert all symbol values to float
-            symbols = {k: float(v) for k, v in definition.symbols.items()}
-            mc.add_symbols(**symbols)
+            mc.add_symbols(**definition.symbols)
 
         for link in definition.chain:
             head = MarkovState(link.from_state)
