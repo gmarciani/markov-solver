@@ -3,6 +3,7 @@
 ## 2.1.0
 
 ### Bug Fixes
+- Transition values are no longer passed to Python's `eval`, which let a definition file execute arbitrary code. They are now parsed by a dedicated arithmetic parser (numbers, symbols, `+ - * / **`, parentheses) into sympy expressions; anything else is rejected with an `ExpressionError`.
 - Symbols in transition values are now substituted by whole name. Previously a textual replacement corrupted expressions whenever one symbol was a prefix of another (`mu` inside `mu2`) or of a numeric literal (`e` inside `1e-1`), producing silently wrong probabilities. Referencing an undefined symbol now raises a clear `ExpressionError` instead of a `NameError`.
 - Transition matrix definitions (`states`/`transitions`) in `.yaml`, `.yml` and `.json` files are now detected automatically by `create_chain_from_file` and the CLI, as documented; previously they failed with a chain-schema validation error.
 - The `--debug` flag now actually enables debug logging; the console handler previously filtered out every record below INFO regardless of the logger level.

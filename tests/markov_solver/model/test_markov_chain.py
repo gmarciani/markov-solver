@@ -206,6 +206,22 @@ class TestMarkovChain:
         assert_that(float(solutions["A"])).is_close_to(expected_a, 1e-12)
         assert_that(float(solutions["B"])).is_close_to(expected_b, 1e-12)
 
+    @pytest.mark.parametrize(
+        "value", ["print('x') or 0.5", "__import__('os').getpid()", "0.5; 1"]
+    )
+    def test_solve_never_executes_transition_values(
+        self, value: str, capsys: pytest.CaptureFixture[str]
+    ) -> None:
+        chain = MarkovChain()
+        a = chain.add_state("A")
+        b = chain.add_state("B")
+        chain.add_link(MarkovLink(a, b, value))
+        chain.add_link(MarkovLink(b, a, "0.5"))
+        assert_that(chain.solve).raises(ExpressionError).when_called_with().contains(
+            "Invalid expression"
+        )
+        assert_that(capsys.readouterr().out).is_empty()
+
     def test_solve_undefined_symbol_raises_expression_error(self) -> None:
         chain = MarkovChain()
         a = chain.add_state("A")

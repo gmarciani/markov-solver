@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional, Set, Tuple, Union
 import sympy  # type: ignore
 from graphviz import Digraph  # type: ignore
 
-from markov_solver.model.expression import substitute_symbols
+from markov_solver.model.expression import evaluate_expression
 from markov_solver.model.markov_link import MarkovLink
 from markov_solver.model.markov_state import MarkovState
 
@@ -158,8 +158,8 @@ class MarkovChain:
     def __evaluate_factor(self, factor: Any) -> float:
         if isinstance(factor, int) or isinstance(factor, float):
             return float(factor)
-        value = substitute_symbols(factor, self.symbols)
-        return float(round(eval(value), FLOATING_POINT_PRECISION))
+        value = evaluate_expression(factor, self.symbols)
+        return round(value, FLOATING_POINT_PRECISION)
 
     def __str__(self) -> str:
         return "States: {}\nLinks: {}\nSymbols: {}\n".format(

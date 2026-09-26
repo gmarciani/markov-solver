@@ -62,6 +62,15 @@ Example (YAML)
         to: "Sunny"
         value: "0.5"
 
+Transition Values
+~~~~~~~~~~~~~~~~~
+
+A transition ``value`` is a numeric literal (``"0.5"``, ``"1e-3"``) or an
+arithmetic expression over the names declared in ``symbols``, using ``+``,
+``-``, ``*``, ``/``, ``**`` and parentheses, for example ``"3*mu"`` or
+``"(1-p)*0.25"``. Nothing else is allowed: values are parsed by the solver
+itself and never executed as code.
+
 Example with Symbols (YAML)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
