@@ -56,9 +56,9 @@ class ChainFormatParser(FormatParser):
             mc.add_symbols(**definition.symbols)
 
         for link in definition.chain:
-            head = MarkovState(link.from_state)
-            tail = MarkovState(link.to_state)
-            markov_link = MarkovLink(head, tail, link.value)
+            head = MarkovState(str(link.from_state))
+            tail = MarkovState(str(link.to_state))
+            markov_link = MarkovLink(head, tail, str(link.value))
             mc.add_state(head)
             mc.add_state(tail)
             if not mc.add_link(markov_link):

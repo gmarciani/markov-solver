@@ -173,6 +173,26 @@ chain:
         with pytest.raises(ParserError, match="symbols.rate"):
             self.parser.parse(content)
 
+    def test_parse_unquoted_numbers(self) -> None:
+        """Test that unquoted YAML numbers are accepted for from, to and value."""
+        content = """
+chain:
+  - from: 0
+    to: 1
+    value: 0.5
+  - from: 1
+    to: 0
+    value: 1
+"""
+        mc = self.parser.parse(content)
+
+        assert {str(s) for s in mc.states} == {"0", "1"}
+        assert {(str(link.tail), str(link.head), link.value) for link in mc.links} == {
+            ("0", "1", "0.5"),
+            ("1", "0", "1"),
+        }
+        assert mc.solve() == {"0": 2 / 3, "1": 1 / 3}
+
     def test_parse_duplicate_transition_raises_parser_error(self) -> None:
         """Test that the same from/to pair listed twice is rejected."""
         content = """

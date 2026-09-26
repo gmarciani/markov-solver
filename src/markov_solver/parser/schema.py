@@ -9,9 +9,15 @@ from pydantic import BaseModel, Field
 class MarkovLinkSchema(BaseModel):
     """Schema for a single link/edge in the Markov chain."""
 
-    from_state: str = Field(..., alias="from", description="Source state name")
-    to_state: str = Field(..., alias="to", description="Target state name")
-    value: str = Field(..., description="Transition probability or rate")
+    from_state: str | int | float = Field(
+        ..., alias="from", description="Source state name"
+    )
+    to_state: str | int | float = Field(
+        ..., alias="to", description="Target state name"
+    )
+    value: str | int | float = Field(
+        ..., description="Transition probability or rate: a number or an expression"
+    )
 
     model_config = {"populate_by_name": True}
 

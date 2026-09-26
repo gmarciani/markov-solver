@@ -65,6 +65,9 @@ Example (YAML)
 Transition Values
 ~~~~~~~~~~~~~~~~~
 
+State names and values may be written as plain YAML/JSON scalars or as
+quoted strings: ``from: 0`` and ``from: "0"`` are equivalent.
+
 A transition ``value`` is a numeric literal (``"0.5"``, ``"1e-3"``) or an
 arithmetic expression over the names declared in ``symbols``, using ``+``,
 ``-``, ``*``, ``/``, ``**`` and parentheses, for example ``"3*mu"`` or
