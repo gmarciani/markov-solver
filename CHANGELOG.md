@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.1.0
+
+### Changes
+- Expressed all dependencies with the `~=` version constraint pinned to the minor version, so patch-level updates are applied automatically while minor/major upgrades remain explicit.
+- Upgraded click to version 8.4.2.
+- Upgraded colored to version 2.3.2.
+- Upgraded graphviz to version 0.21.0.
+- Upgraded numpy to version 2.5.1.
+- Upgraded pydantic to version 2.13.4.
+- Upgraded scipy to version 1.18.0.
+- Upgraded autoflake to version 2.3.3.
+- Upgraded black to version 26.5.1.
+- Upgraded build to version 1.5.1.
+- Upgraded mypy to version 2.2.0.
+- Upgraded pre-commit to version 4.6.0.
+- Upgraded pytest to version 9.1.1.
+- Upgraded pytest-cov to version 7.1.0.
+- Upgraded pytest-resource-path to version 1.5.0.
+- Upgraded tox to version 4.56.4.
+- Upgraded types-PyYAML to version 6.0.12.
+- Upgraded types-requests to version 2.33.0.
+
 ## 2.0.0
 
 ### New Features
