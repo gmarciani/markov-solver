@@ -4,7 +4,7 @@
 <img src="https://raw.githubusercontent.com/gmarciani/markov-solver/main/resources/brand/banner.png" alt="markov-solver-banner" width="500">
 
 [![PyPI version](https://img.shields.io/pypi/v/markov-solver.svg)](https://pypi.org/project/markov-solver)
-[![Python versions](https://img.shields.io/pypi/pyversions/markov-solver.svg)](https://pypi.org/project/markov-solver)
+[![Python versions](https://img.shields.io/badge/python-3.12%20%7C%203.13%20%7C%203.14-blue.svg)](https://pypi.org/project/markov-solver)
 [![License](https://img.shields.io/github/license/gmarciani/markov-solver.svg)](https://github.com/gmarciani/markov-solver/blob/main/LICENSE)
 [![Build status](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=main)](https://github.com/gmarciani/markov-solver/actions)
 [![Tests](https://img.shields.io/github/actions/workflow/status/gmarciani/markov-solver/test.yaml?branch=main&label=tests)](https://github.com/gmarciani/markov-solver/actions)
@@ -36,6 +36,8 @@ Solve Markov Chains in a glance.
 - **High Precision**: Calculations with 12 decimal places of floating-point precision.
 
 ## Installation
+
+Requires Python 3.12, 3.13 or 3.14.
 
 ```shell
 pip install markov-solver

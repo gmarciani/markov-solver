@@ -20,6 +20,9 @@
 - Fixed the package description shown on PyPI.
 
 ### Changes
+- The supported Python versions (3.12, 3.13 and 3.14) are now verified by dedicated tox environments
+  (`py312`, `py313`, `py314`) and by the PR checks, which run the unit tests on every supported version.
+  Python 3.14 is the default interpreter: development, tox, mypy and the single-version CI jobs run on it.
 - Expressed all dependencies with the `~=` version constraint pinned to the minor version,
   so patch-level updates are applied automatically while minor/major upgrades remain explicit.
 - Upgraded autoflake to version 2.4.0.

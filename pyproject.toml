@@ -74,12 +74,15 @@ include = ["markov_solver*"]
 [tool.setuptools.dynamic]
 version = {file = "VERSION"}
 
+# Black formats for every supported version, so it never emits syntax the
+# oldest interpreter rejects.
 [tool.black]
 line-length = 88
-target-version = ['py312']
+target-version = ['py312', 'py313', 'py314']
 
+# mypy checks against the default interpreter, the newest supported version.
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.14"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
